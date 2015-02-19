@@ -1,0 +1,58 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:background="#c54f525b"
+    android:weightSum="1">
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="80dp"
+        android:text="Full House"
+        android:textSize="30sp"
+        android:id="@+id/imageButton" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="80dp"
+        android:text="Flat Mate"
+        android:textSize="30sp"
+        android:id="@+id/flatMate"
+        android:layout_marginTop="0dp" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="80dp"
+        android:text="PG"
+        android:textSize="30sp"
+        android:id="@+id/payingGuest"
+        android:layout_marginTop="0dp" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="80dp"
+        android:text="Room"
+        android:textSize="30sp"
+        android:id="@+id/individualRoom"
+        android:layout_marginTop="0dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Previous Listing"
+        android:id="@+id/previousListings"
+        android:layout_gravity="center_horizontal" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/imageView"
+        android:baselineAlignBottom="true"
+        android:theme="@style/Base.V14.Theme.AppCompat.Light" />
+
+</LinearLayout>

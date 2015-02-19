@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Flat/FlatMates</string>
+    <string name="hello_world">Hi Hitesh!</string>
+    <string name="action_settings">Settings</string>
+    <string name="edit_message">Enter Text</string>
+    <string name="button_send">Send</string>
+    <string name="title_activity_login">Login</string>
+    <string name="email">Email</string>
+    <string name="login">Login</string>
+    <string name="register_text">New to Application? Register here</string>
+    <string name="pwd">Password</string>
+    <string name="title_activity_registeration">Registeration</string>
+    <string name="already_register">Already has account! Login here</string>
+    <string name="register">Register New Account</string>
+    <string name="fullName">Full Name</string>
+    <string name="title_activity_main">Flat n FlatMates</string>
+    <string name="get_started">Get Started</string>
+    <string name="facebook_app_id">342020302652933</string>
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ut nisi a ligula porta fringilla eget vitae tellus. Mauris at nisi sed nisi dictum commodo. Fusce mauris purus, aliquet sit amet suscipit eget, scelerisque quis quam. Proin vulputate, lectus eu molestie accumsan, nunc nunc ornare metus, eu tristique eros sem quis nunc. Nam vitae lorem mi. Nulla vitae tempor dolor. Nulla convallis nisl a mi porttitor a tempor tortor aliquet.</string>
+    <string name="title_activity_host">HostActivity</string>
+    <string name="title_activity_menu">MenuActivity</string>
+    <string name="openNavDrawer">Open Menu</string>
+    <string name="closeNavDrawer">Close Menu</string>
+    <string name="next">next</string>
+
+    <string-array name="menuItems">
+        <item>Profile</item>
+        <item>Host</item>
+        <item>Search</item>
+        <item>Logout</item>
+    </string-array>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_navigation_drawer">NavigationDrawerActivity</string>
+
+</resources>
