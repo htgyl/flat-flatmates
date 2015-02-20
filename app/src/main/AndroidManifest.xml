@@ -40,7 +40,7 @@
             android:label="@string/title_activity_menu" >
         </activity>
         <activity
-            android:name=".NavigationDrawerActivity"
+            android:name=".NavigationDrawerClickHandleActivity"
             android:label="@string/title_activity_navigation_drawer" >
         </activity>
     </application>

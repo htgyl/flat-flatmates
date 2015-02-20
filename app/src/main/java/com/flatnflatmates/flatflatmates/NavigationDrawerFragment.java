@@ -72,8 +72,11 @@ public class NavigationDrawerFragment extends Fragment {
         recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getActivity(), recyclerView, new ClickListener() {
             @Override
             public void onClick( View view, int position ) {
-                    Intent hostIntent = new Intent( getActivity(), NavigationDrawerActivity.class);
-                    startActivity( hostIntent );
+                Intent navClick = new Intent( getActivity(), NavigationDrawerClickHandleActivity.class );
+                Bundle param = new Bundle(  );
+                param.putInt("position",position);
+                navClick.putExtras(param);
+                startActivity(navClick);
             }
 
             @Override
@@ -87,7 +90,7 @@ public class NavigationDrawerFragment extends Fragment {
     public static List<NavigationInformation> getData(){
         List<NavigationInformation> data = new ArrayList<>();
         int[] icons = {R.drawable.ic_number1, R.drawable.ic_number1, R.drawable.ic_number1, R.drawable.ic_number1};
-        String[] titles = {"Add Food", "Add Friend", "Search", "User"};
+        String[] titles = {"Flats", "Search Preference", "Add Your Space", "Shortlisted Flats"};
         for(int i =0 ; i < titles.length && i < icons.length; i++){
             NavigationInformation current = new NavigationInformation();
             current.inconId = icons[i];

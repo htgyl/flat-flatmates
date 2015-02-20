@@ -1,0 +1,28 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.flatnflatmates.flatflatmates.NavigationDrawerClickHandleActivity">
+
+    <fragment android:name="com.flatnflatmates.flatflatmates.HostingOptions"
+        android:id="@+id/hostingOptionsFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout="@layout/hosting_options" />
+    <fragment android:name="com.flatnflatmates.flatflatmates.SearchOptions"
+        android:id="@+id/searchOptionsFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout="@layout/search_options" />
+    <fragment android:name="com.flatnflatmates.flatflatmates.ShortListedFlats"
+        android:id="@+id/shortlistedFlatsFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout="@layout/shortlisted_flats" />
+    <fragment android:name="com.flatnflatmates.flatflatmates.FlatListView"
+        android:id="@+id/flatListViewFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout="@layout/flat_list_view" />
+
+</RelativeLayout>

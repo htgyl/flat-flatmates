@@ -5,10 +5,11 @@
     android:background="@drawable/custom_bc"
     android:clickable="true"
     android:layout_width="match_parent"
+    android:layout_margin="10dp"
     android:layout_height="48dp">
-    
+
     <ImageView
-        android:id="@+id/navIcon"
+        android:id="@+id/hostOptionsIcon"
         android:layout_gravity="center_vertical"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
@@ -17,12 +18,12 @@
         android:layout_height="wrap_content"
         android:src="@drawable/add_food"/>
     <TextView
-        android:id="@+id/navMessage"
+        android:id="@+id/hostOptionsMessage"
         android:layout_marginLeft="72dp"
         android:layout_centerVertical="true"
         android:layout_gravity="center_vertical"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Home"
-        android:textSize="15sp"/>
+        android:textSize="25sp"/>
 </LinearLayout>

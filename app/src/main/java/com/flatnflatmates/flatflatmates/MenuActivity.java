@@ -16,8 +16,8 @@ public class MenuActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
-        toolbar = (Toolbar) findViewById(R.id.app_bar);
-        setSupportActionBar(toolbar);
+        toolbar = ( Toolbar ) findViewById( R.id.app_bar );
+        setSupportActionBar( toolbar );
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         NavigationDrawerFragment drawerFragment = (NavigationDrawerFragment) getSupportFragmentManager().findFragmentById(R.id.fragment_nav_drawer);
 
