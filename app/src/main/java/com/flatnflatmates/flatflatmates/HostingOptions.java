@@ -31,7 +31,7 @@ public class HostingOptions extends Fragment {
         recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getActivity(), recyclerView, new ClickListener() {
             @Override
             public void onClick( View view, int position ) {
-                
+
             }
 
             @Override
