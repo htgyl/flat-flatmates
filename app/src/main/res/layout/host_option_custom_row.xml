@@ -25,5 +25,6 @@
         android:layout_gravity="center_vertical"
         android:layout_marginLeft="72dp"
         android:text="Home"
+        android:textColor="#CCC"
         android:textSize="25sp" />
 </LinearLayout>

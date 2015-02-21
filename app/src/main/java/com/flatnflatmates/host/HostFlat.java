@@ -108,12 +108,12 @@ public class HostFlat extends Fragment implements View.OnClickListener {
                 }
                 break;
             case R.id.bedRoomPlusButton:
-                if( sumBedRoom <= 20  ) {
+                if( sumBedRoom <= 16  ) {
                     sumBedRoom++;
                     textBedRoomsView.setText( sumBedRoom+"" );
-                    if( sumBedRoom >= 20 ){
-                        sumBedRoom = 21;
-                        textBedRoomsView.setText("20+");
+                    if( sumBedRoom >= 16 ){
+                        sumBedRoom = 17;
+                        textBedRoomsView.setText("16+");
                     }
                 }
                 break;
