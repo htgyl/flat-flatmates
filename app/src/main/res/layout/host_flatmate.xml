@@ -82,7 +82,7 @@
                 android:layout_height="0dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_weight="1"
-                android:text="BatchRooms"
+                android:text="BathRooms"
                 android:textSize="20sp" />
 
             <LinearLayout
@@ -142,7 +142,7 @@
                 android:layout_height="0dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_weight="1"
-                android:text="Bed Rooms"
+                android:text="Room Shared Between"
                 android:textSize="20sp" />
 
             <LinearLayout
@@ -233,7 +233,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
                     android:textColor="#CCC"
-                    android:background="@color/primaryColorDark"
+                    android:background="@color/primaryColor"
                     android:clickable="false"
                     android:text="0"
                     android:textSize="30sp" />

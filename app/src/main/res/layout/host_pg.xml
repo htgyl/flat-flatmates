@@ -82,7 +82,7 @@
                 android:layout_height="0dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_weight="1"
-                android:text="Rooms"
+                android:text="BathRooms"
                 android:textSize="20sp" />
 
             <LinearLayout
@@ -96,7 +96,7 @@
                 android:textColor="#CCC">
 
                 <Button
-                    android:id="@+id/roomPGMinusButton"
+                    android:id="@+id/bathRoomPGMinusButton"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -107,7 +107,7 @@
                     android:textSize="25sp" />
 
                 <TextView
-                    android:id="@+id/roomPGTextView"
+                    android:id="@+id/bathRoomPGTextView"
                     style="@android:style/Widget.Button"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -119,7 +119,7 @@
                     android:textSize="30sp" />
 
                 <Button
-                    android:id="@+id/roomPGPlusButton"
+                    android:id="@+id/bathRoomPGPlusButton"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
