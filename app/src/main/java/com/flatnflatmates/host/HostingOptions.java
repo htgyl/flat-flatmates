@@ -1,6 +1,7 @@
-package com.flatnflatmates.flatflatmates;
+package com.flatnflatmates.host;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -10,6 +11,8 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.flatnflatmates.flatflatmates.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +34,11 @@ public class HostingOptions extends Fragment {
         recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getActivity(), recyclerView, new ClickListener() {
             @Override
             public void onClick( View view, int position ) {
-
+                Intent hostOptions = new Intent(getActivity(), HostOptionsClick.class);
+                Bundle param = new Bundle();
+                param.putInt("position",position);
+                hostOptions.putExtras(param);
+                startActivity(hostOptions);
             }
 
             @Override
@@ -44,8 +51,8 @@ public class HostingOptions extends Fragment {
 
     public static List<HostOptionsInformation> getData(){
         List<HostOptionsInformation> data = new ArrayList<>();
-        int[] icons = {R.drawable.ic_number1, R.drawable.ic_number1, R.drawable.ic_number1};
-        String[] titles = { "Flat", "Flat Mate", "PG" };
+        int[] icons = {R.drawable.ic_number1, R.drawable.ic_number1, R.drawable.ic_number1,R.drawable.ic_number1};
+        String[] titles = { "Flat", "Flat Mate","Room", "PG" };
         for(int i =0 ; i < titles.length && i < icons.length; i++){
             HostOptionsInformation current = new HostOptionsInformation();
             current.inconId = icons[i];

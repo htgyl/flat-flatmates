@@ -1,144 +1,275 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-android:layout_width="fill_parent"
-android:layout_height="fill_parent"
-android:background="#ECECEC"
-android:orientation="vertical" >
-
-<LinearLayout
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center"
+    android:layout_height="match_parent"
+    android:background="#ECECEC"
     android:orientation="vertical">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="Max People"
-        android:textSize="20sp"/>
+
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_margin="15dp">
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="-"
-            android:textSize="25sp"
-            android:clickable="true"
-            android:layout_weight="1"
-            android:id="@+id/button" />
+        android:layout_weight="0"
+        android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Sample"
-            android:clickable="false"
-            android:layout_weight="30"
-            style="@android:style/Widget.Button"
-            android:id="@+id/textView4" />
+            android:layout_gravity="center"
+            android:orientation="vertical">
 
-        <Button
-            android:layout_width="wrap_content"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:text="Max People"
+                android:textSize="20sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_gravity="center_horizontal"
+                android:textColor="#CCC"
+                android:background="@color/primaryColor"
+                android:layout_margin="15dp"
+                android:layout_weight="2"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/maxPeopleMinusButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="#CCC"
+                    android:background="@color/primaryColor"
+                    android:clickable="true"
+                    android:text="-"
+                    android:textSize="25sp" />
+
+                <TextView
+                    android:id="@+id/maxPeopleTextView"
+                    style="@android:style/Widget.Button"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:textColor="#CCC"
+                    android:background="@color/primaryColor"
+                    android:clickable="false"
+                    android:text="0"
+                    android:textSize="30sp" />
+
+                <Button
+                    android:id="@+id/maxPeoplePlusButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="#CCC"
+                    android:background="@color/primaryColor"
+                    android:clickable="true"
+                    android:text="+"
+                    android:textSize="25sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="+"
-            android:textSize="25sp"
-            android:clickable="true"
-            android:layout_weight="1"
-            android:id="@+id/button2" />
+            android:layout_gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:text="BatchRooms"
+                android:textSize="20sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="15dp"
+                android:textColor="#CCC"
+                android:background="@color/primaryColor"
+                android:layout_weight="2"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/bathRoomMinusButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="#CCC"
+                    android:background="@color/primaryColor"
+                    android:clickable="true"
+                    android:text="-"
+                    android:textSize="25sp" />
+
+                <TextView
+                    android:id="@+id/bathRoomTextView"
+                    style="@android:style/Widget.Button"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="#CCC"
+                    android:background="@color/primaryColor"
+                    android:layout_weight="2"
+                    android:clickable="false"
+                    android:text="0"
+                    android:textSize="30sp" />
+
+                <Button
+                    android:id="@+id/bathRoomPlusButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="#CCC"
+                    android:background="@color/primaryColor"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:text="+"
+                    android:textSize="25sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:text="Bed Rooms"
+                android:textSize="20sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="15dp"
+                android:textColor="#CCC"
+                android:background="@color/primaryColor"
+                android:layout_weight="2"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/bedRoomMinusButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:textColor="#CCC"
+                    android:background="@color/primaryColor"
+                    android:text="-"
+                    android:textSize="25sp" />
+
+                <TextView
+                    android:id="@+id/bedRoomTextview"
+                    style="@android:style/Widget.Button"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="#CCC"
+                    android:background="@color/primaryColor"
+                    android:layout_weight="2"
+                    android:clickable="false"
+                    android:text="0"
+                    android:textSize="30sp" />
+
+                <Button
+                    android:id="@+id/bedRoomPlusButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="#CCC"
+                    android:background="@color/primaryColor"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:text="+"
+                    android:textSize="25sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:text="Kitchens"
+                android:textSize="20sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="15dp"
+                android:background="@color/primaryColor"
+                android:layout_weight="2"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/kitchenMinusButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="#CCC"
+                    android:background="@color/primaryColor"
+                    android:clickable="true"
+                    android:text="-"
+                    android:textSize="25sp" />
+
+                <TextView
+                    android:id="@+id/kitchenTextView"
+                    style="@android:style/Widget.Button"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:textColor="#CCC"
+                    android:background="@color/primaryColorDark"
+                    android:clickable="false"
+                    android:text="0"
+                    android:textSize="30sp" />
+
+                <Button
+                    android:id="@+id/kitchenPlushBtn"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="#CCC"
+                    android:background="@color/primaryColor"
+                    android:clickable="true"
+                    android:text="+"
+                    android:textSize="25sp" />
+            </LinearLayout>
+        </LinearLayout>
     </LinearLayout>
-</LinearLayout>
 
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center"
-    android:orientation="vertical">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="BathRooms"
-        android:textSize="20sp"/>
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_margin="15dp">
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="-"
-            android:textSize="25sp"
-            android:clickable="true"
-            android:layout_weight="1"
-            android:id="@+id/button8" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Sample"
-            android:clickable="false"
-            android:layout_weight="30"
-            style="@android:style/Widget.Button"
-            android:id="@+id/textView42" />
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:gravity="bottom|center">
 
         <Button
-            android:layout_width="wrap_content"
+            android:id="@+id/flatNextButton"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="+"
-            android:textSize="25sp"
+            android:layout_gravity="center_horizontal|center"
+            android:height="40dp"
             android:clickable="true"
-            android:layout_weight="1"
-            android:id="@+id/button23" />
+            android:gravity="center|center_horizontal"
+            android:text="Next"
+            android:textColor="#CCC"
+            android:background="@color/primaryColorDark"
+            android:textSize="25sp" />
     </LinearLayout>
-</LinearLayout>
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center"
-    android:orientation="vertical">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="BedRooms"
-        android:textSize="20sp"/>
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_margin="15dp">
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="-"
-            android:textSize="25sp"
-            android:clickable="true"
-            android:layout_weight="1"
-            android:id="@+id/button13" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Sample"
-            android:clickable="false"
-            android:layout_weight="30"
-            style="@android:style/Widget.Button"
-            android:id="@+id/textView44" />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="+"
-            android:textSize="25sp"
-            android:clickable="true"
-            android:layout_weight="1"
-            android:id="@+id/button22" />
-    </LinearLayout>
-</LinearLayout>
 </LinearLayout>

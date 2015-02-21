@@ -1,5 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.flatnflatmates.flatflatmates">
+    package="com.flatnflatmates.flatflatmates" >
 
     <!-- Permission - Internet Connect -->
     <uses-permission android:name="android.permission.INTERNET" />
@@ -32,7 +33,7 @@
         </meta-data>
 
         <activity
-            android:name=".HostActivity"
+            android:name="com.flatnflatmates.host.HostActivity"
             android:label="@string/title_activity_host" >
         </activity>
         <activity
@@ -43,7 +44,10 @@
             android:name=".NavigationDrawerClickHandleActivity"
             android:label="@string/title_activity_navigation_drawer" >
         </activity>
+        <activity
+            android:name="com.flatnflatmates.host.HostOptionsClick"
+            android:label="@string/title_activity_host_options_click" >
+        </activity>
     </application>
-
 
 </manifest>

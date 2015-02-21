@@ -1,4 +1,4 @@
-package com.flatnflatmates.flatflatmates;
+package com.flatnflatmates.host;
 
 /**
  * Created by applect on 21/2/15.

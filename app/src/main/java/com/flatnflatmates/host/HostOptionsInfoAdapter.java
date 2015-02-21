@@ -1,4 +1,4 @@
-package com.flatnflatmates.flatflatmates;
+package com.flatnflatmates.host;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.flatnflatmates.flatflatmates.R;
 
 import java.util.Collections;
 import java.util.List;

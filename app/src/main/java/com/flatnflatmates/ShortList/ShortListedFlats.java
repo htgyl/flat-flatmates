@@ -1,10 +1,12 @@
-package com.flatnflatmates.flatflatmates;
+package com.flatnflatmates.ShortList;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.flatnflatmates.flatflatmates.R;
 
 /**
  * Created by applect on 20/2/15.

@@ -20,29 +20,22 @@ public class MenuActivity extends ActionBarActivity {
         setSupportActionBar( toolbar );
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         NavigationDrawerFragment drawerFragment = (NavigationDrawerFragment) getSupportFragmentManager().findFragmentById(R.id.fragment_nav_drawer);
-
         drawerFragment.setUp( R.id.fragment_nav_drawer,  (DrawerLayout)findViewById(R.id.drawer_layout), toolbar );
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
-
         getMenuInflater().inflate(R.menu.menu_menu, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-
-
         int id = item.getItemId();
-
         if(id == R.id.navigate){
-
             Toast.makeText(this," ICON ", Toast.LENGTH_SHORT).show();
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 }

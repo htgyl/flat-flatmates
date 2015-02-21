@@ -12,7 +12,6 @@ import com.facebook.SessionState;
 import com.facebook.UiLifecycleHelper;
 
 public class MainActivity extends FragmentActivity {
-
     private boolean isResumed = false;
     private static final int LOGIN = 0;
     private static final int FRAGMENT_COUNT = 1;
