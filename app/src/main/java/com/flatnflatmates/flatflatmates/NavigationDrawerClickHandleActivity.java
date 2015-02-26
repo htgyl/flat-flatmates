@@ -1,10 +1,13 @@
 package com.flatnflatmates.flatflatmates;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBarActivity;
+
+import com.flatnflatmates.ShortList.ShortListedFlats;
 
 public class NavigationDrawerClickHandleActivity extends ActionBarActivity {
 
@@ -12,8 +15,8 @@ public class NavigationDrawerClickHandleActivity extends ActionBarActivity {
     private static final int FLATLISTS= 0;
     private static final int SEARCH= 1;
     private static final int HOSTOPTIONS = 2;
-    private static final int SHORTLIST= 3;
-    private static final int FRAGMENT_COUNT = 4;
+    //private static final int SHORTLIST= 3;
+    private static final int FRAGMENT_COUNT = 3;
     private Fragment[] fragments = new Fragment[FRAGMENT_COUNT];
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +26,7 @@ public class NavigationDrawerClickHandleActivity extends ActionBarActivity {
         fragments[HOSTOPTIONS] = fm.findFragmentById( R.id.hostingOptionsFragment );
         fragments[FLATLISTS] = fm.findFragmentById( R.id.flatListViewFragment );
         fragments[SEARCH] = fm.findFragmentById( R.id.searchOptionsFragment );
-        fragments[SHORTLIST] = fm.findFragmentById( R.id.shortlistedFlatsFragment );
+        //fragments[SHORTLIST] = fm.findFragmentById( R.id.shortlistedFlatsFragment );
         FragmentTransaction transaction = fm.beginTransaction();
         for(int i = 0; i < fragments.length; i++) {
             transaction.hide(fragments[i]);
@@ -47,6 +50,10 @@ public class NavigationDrawerClickHandleActivity extends ActionBarActivity {
         }
         if (addToBackStack) {
             transaction.addToBackStack(null);
+        }
+        if( fragmentIndex == 3 ){
+            Intent navClick = new Intent(this, com.flatnflatmates.ShortList.ShortListedFlats.class);
+            startActivity(navClick);
         }
         transaction.commit();
     }

@@ -26,6 +26,7 @@
     <string name="next">next</string>
     <string name="str_btn_find">Find</string>
     <string name="hnt_et_location">Enter location</string>
+    <string name="search_hint">Search Places</string>
 
     <string-array name="menuItems">
         <item>Profile</item>

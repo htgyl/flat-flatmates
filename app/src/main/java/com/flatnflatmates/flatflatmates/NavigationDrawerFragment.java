@@ -53,10 +53,10 @@ public class NavigationDrawerFragment extends Fragment {
     }
 
     @Override
-    public void onCreate( Bundle savedInstanceState ){
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         navDrwOpen = Boolean.valueOf(readPreferences(getActivity(), KEY_USER_LEARNED_DRAWER, "false"));
-        if(savedInstanceState!=null){
+        if (savedInstanceState != null) {
             mFromSavedInstanceState = true;
         }
     }
@@ -68,13 +68,13 @@ public class NavigationDrawerFragment extends Fragment {
         recyclerView = (RecyclerView) layout.findViewById(R.id.drawerList);
         adapter = new NavigationInfoAdapter(getActivity(), getData());
         recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager( new LinearLayoutManager( getActivity() ));
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getActivity(), recyclerView, new ClickListener() {
             @Override
-            public void onClick( View view, int position ) {
-                Intent navClick = new Intent( getActivity(), NavigationDrawerClickHandleActivity.class );
-                Bundle param = new Bundle(  );
-                param.putInt("position",position);
+            public void onClick(View view, int position) {
+                Intent navClick = new Intent(getActivity(), NavigationDrawerClickHandleActivity.class);
+                Bundle param = new Bundle();
+                param.putInt("position", position);
                 navClick.putExtras(param);
                 startActivity(navClick);
             }
@@ -87,11 +87,11 @@ public class NavigationDrawerFragment extends Fragment {
         return layout;
     }
 
-    public static List<NavigationInformation> getData(){
+    public static List<NavigationInformation> getData() {
         List<NavigationInformation> data = new ArrayList<>();
         int[] icons = {R.drawable.ic_number1, R.drawable.ic_number1, R.drawable.ic_number1, R.drawable.ic_number1};
         String[] titles = {"Flats", "Search Preference", "Add Your Space", "Shortlisted Flats"};
-        for(int i =0 ; i < titles.length && i < icons.length; i++){
+        for (int i = 0; i < titles.length && i < icons.length; i++) {
             NavigationInformation current = new NavigationInformation();
             current.inconId = icons[i];
             current.title = titles[i];
@@ -100,23 +100,24 @@ public class NavigationDrawerFragment extends Fragment {
         return data;
     }
 
-    public void setUp( int fragmentId, DrawerLayout drawerLayout, Toolbar toolbar){
+    public void setUp(int fragmentId, DrawerLayout drawerLayout, Toolbar toolbar) {
         containerView = getActivity().findViewById(fragmentId);
         mDrawerLayout = drawerLayout;
-        mDrawerToggle = new ActionBarDrawerToggle(getActivity(), drawerLayout, toolbar, R.string.openNavDrawer, R.string.closeNavDrawer){
+        mDrawerToggle = new ActionBarDrawerToggle(getActivity(), drawerLayout, toolbar, R.string.openNavDrawer, R.string.closeNavDrawer) {
             @Override
             public void onDrawerOpened(View drawerView) {
                 super.onDrawerOpened(drawerView);
                 saveToPreferences(getActivity(), KEY_USER_LEARNED_DRAWER, navDrwOpen + "");
                 getActivity().invalidateOptionsMenu();
             }
+
             @Override
             public void onDrawerClosed(View drawerView) {
                 super.onDrawerClosed(drawerView);
                 getActivity().invalidateOptionsMenu();
             }
         };
-        if(!navDrwOpen && !mFromSavedInstanceState){
+        if (!navDrwOpen && !mFromSavedInstanceState) {
             mDrawerLayout.openDrawer(containerView);
         }
         mDrawerLayout.setDrawerListener(mDrawerToggle);
@@ -128,23 +129,25 @@ public class NavigationDrawerFragment extends Fragment {
         });
     }
 
-    class RecyclerTouchListener implements RecyclerView.OnItemTouchListener{
+    class RecyclerTouchListener implements RecyclerView.OnItemTouchListener {
 
         private GestureDetector gestureDetector;
         private ClickListener clickListener;
-        public RecyclerTouchListener(Context context, RecyclerView rv, ClickListener clickListener){
+
+        public RecyclerTouchListener(Context context, RecyclerView rv, ClickListener clickListener) {
             this.clickListener = clickListener;
-            gestureDetector = new GestureDetector(context, new GestureDetector.SimpleOnGestureListener(){
+            gestureDetector = new GestureDetector(context, new GestureDetector.SimpleOnGestureListener() {
                 @Override
-                public boolean onSingleTapUp( MotionEvent event){
+                public boolean onSingleTapUp(MotionEvent event) {
                     return true;
                 }
             });
         }
+
         @Override
         public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent e) {
             View child = rv.findChildViewUnder(e.getX(), e.getY());
-            if( child != null  && clickListener != null && gestureDetector.onTouchEvent(e) ){
+            if (child != null && clickListener != null && gestureDetector.onTouchEvent(e)) {
                 clickListener.onClick(child, rv.getChildPosition(child));
             }
             gestureDetector.onTouchEvent(e);
@@ -157,19 +160,20 @@ public class NavigationDrawerFragment extends Fragment {
         }
     }
 
-    public static interface ClickListener{
+    public static interface ClickListener {
         public void onClick(View view, int position);
+
         public void onLongClick(View view, int position);
     }
 
-    public static void saveToPreferences( Context context, String preferenceName, String preferenceValue  ){
+    public static void saveToPreferences(Context context, String preferenceName, String preferenceValue) {
         SharedPreferences sharedPreferences = context.getSharedPreferences(PREF_FILE_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString(preferenceName, preferenceValue);
         editor.apply();
     }
 
-    public static String readPreferences( Context context, String preferenceName, String preferenceValue  ){
+    public static String readPreferences(Context context, String preferenceName, String preferenceValue) {
         SharedPreferences sharedPreferences = context.getSharedPreferences(PREF_FILE_NAME, Context.MODE_PRIVATE);
         return sharedPreferences.getString(preferenceName, preferenceValue);
     }

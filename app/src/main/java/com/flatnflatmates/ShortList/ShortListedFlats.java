@@ -1,16 +1,21 @@
 package com.flatnflatmates.ShortList;
 
+import android.app.Activity;
 import android.app.Dialog;
+import android.app.SearchManager;
+import android.content.CursorLoader;
+import android.content.Intent;
 import android.content.IntentSender;
+import android.content.Loader;
+import android.database.Cursor;
 import android.location.Location;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.flatnflatmates.flatflatmates.R;
+import com.flatnflatmates.host.PlaceProvider;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.location.LocationRequest;
@@ -27,33 +32,100 @@ import com.google.android.gms.maps.model.MarkerOptions;
 /**
  * Created by applect on 20/2/15.
  */
-public class ShortListedFlats extends Fragment implements
-        GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener {
+public class ShortListedFlats extends Activity implements
+        GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener, android.app.LoaderManager.LoaderCallbacks<Cursor>, View.OnClickListener {
 
     private static final int GPS_ERRORDIALOG_REQUEST = 9001;
     private final static int CONNECTION_FAILURE_RESOLUTION_REQUEST = 9000;
     private GoogleMap gMap;
     private GoogleApiClient mGoogleApiClient;
     private LocationRequest mLocationRequest;
+    private Button searchButton;
 
     @Override
-    public View onCreateView( LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-        View view = null;
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         if(servicesOk()){
-            view = inflater.inflate(R.layout.google_maps, container, false);
+            setContentView(R.layout.google_maps);
             if( initMap() ){
-               mGoogleApiClient = new GoogleApiClient.Builder(getActivity())
+                mGoogleApiClient = new GoogleApiClient.Builder(this)
                         .addApi(LocationServices.API)
                         .addConnectionCallbacks(this)
                         .addOnConnectionFailedListener(this)
                         .build();
                 mLocationRequest = LocationRequest.create()
                         .setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY)
-                        .setInterval(60 * 1000)        // 10 seconds, in milliseconds
-                        .setFastestInterval(10 * 1000); // 1 second, in milliseconds
+                        .setInterval(60 * 1000)        // 60 seconds, in milliseconds
+                        .setFastestInterval(10 * 1000); // 10 second, in milliseconds
+                handleIntent(getIntent());
+                searchButton = (Button) findViewById(R.id.searchLocation);
+                searchButton.setOnClickListener(this);
             }
         }
-        return view;
+    }
+
+    private void handleIntent(Intent intent){
+      /*  if(intent.getAction().equals(Intent.ACTION_SEARCH)){
+            doSearch(intent.getStringExtra(SearchManager.QUERY));
+        }else if(intent.getAction().equals(Intent.ACTION_VIEW)){
+            getPlace(intent.getStringExtra(SearchManager.EXTRA_DATA_KEY));
+        }*/
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent( intent );
+        setIntent(intent);
+        handleIntent(intent);
+    }
+
+    private void doSearch(String query){
+        Bundle data = new Bundle();
+        data.putString("query", query);
+        getLoaderManager().restartLoader(0, data, this);
+    }
+
+    private void getPlace(String query){
+        Bundle data = new Bundle();
+        data.putString("query", query);
+        getLoaderManager().restartLoader(1, data, this);
+    }
+
+    @Override
+    public Loader<Cursor> onCreateLoader(int arg0, Bundle query) {
+        CursorLoader cLoader = null;
+        if(arg0==0)
+            cLoader = new CursorLoader(getBaseContext(), PlaceProvider.SEARCH_URI, null, null, new String[]{ query.getString("query") }, null);
+        else if(arg0==1)
+            cLoader = new CursorLoader(getBaseContext(), PlaceProvider.DETAILS_URI, null, null, new String[]{ query.getString("query") }, null);
+        return cLoader;
+    }
+
+    @Override
+    public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
+        showLocations(data);
+    }
+
+    @Override
+    public void onLoaderReset(Loader<Cursor> loader) {
+
+    }
+
+    private void showLocations(Cursor c){
+        MarkerOptions markerOptions = null;
+        LatLng position = null;
+        gMap.clear();
+        while(c.moveToNext()){
+            markerOptions = new MarkerOptions();
+            position = new LatLng(Double.parseDouble(c.getString(1)),Double.parseDouble(c.getString(2)));
+            markerOptions.position(position);
+            markerOptions.title(c.getString(0));
+            gMap.addMarker(markerOptions);
+        }
+        if(position!=null){
+            CameraUpdate cameraPosition = CameraUpdateFactory.newLatLng(position);
+            gMap.animateCamera(cameraPosition);
+        }
     }
 
     @Override
@@ -73,6 +145,7 @@ public class ShortListedFlats extends Fragment implements
         }
     }
 
+    //Handles the new Location
     private void handleNewLocation(Location location) {
         double currentLatitude = location.getLatitude();
         double currentLongitude = location.getLongitude();
@@ -84,21 +157,20 @@ public class ShortListedFlats extends Fragment implements
                 .position(latLng)
                 .title("I am here!");
         gMap.addMarker(options);
-        gMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 10));
+        gMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 10));
     }
 
     public boolean servicesOk(){
-        int isAvaliable = GooglePlayServicesUtil.isGooglePlayServicesAvailable(getActivity());
-
+        int isAvaliable = GooglePlayServicesUtil.isGooglePlayServicesAvailable(this);
         if(isAvaliable == ConnectionResult.SUCCESS){
             return true;
         }
         else if ( GooglePlayServicesUtil.isUserRecoverableError(isAvaliable) ){
-            Dialog dialog = GooglePlayServicesUtil.getErrorDialog(isAvaliable, getActivity(), GPS_ERRORDIALOG_REQUEST);
+            Dialog dialog = GooglePlayServicesUtil.getErrorDialog(isAvaliable, this, GPS_ERRORDIALOG_REQUEST);
             dialog.show();
         }
         else{
-            Toast.makeText(getActivity(),"Can't Resolve the Google Play", Toast.LENGTH_LONG).show();
+            Toast.makeText(this,"Can't Resolve the Google Play", Toast.LENGTH_LONG).show();
         }
         return false;
     }
@@ -110,7 +182,7 @@ public class ShortListedFlats extends Fragment implements
     private boolean initMap(){
         if( gMap == null )
         {
-            MapFragment mapFrag = (MapFragment) getActivity().getFragmentManager().findFragmentById(R.id.map);
+            MapFragment mapFrag = (MapFragment) getFragmentManager().findFragmentById(R.id.map);
             gMap = mapFrag.getMap();
             setUpMap();
         }
@@ -144,7 +216,7 @@ public class ShortListedFlats extends Fragment implements
         if (connectionResult.hasResolution()) {
             try {
                 // Start an Activity that tries to resolve the error
-                connectionResult.startResolutionForResult(getActivity(), CONNECTION_FAILURE_RESOLUTION_REQUEST);
+                connectionResult.startResolutionForResult(this, CONNECTION_FAILURE_RESOLUTION_REQUEST);
                 /*
                  * Thrown if Google Play services canceled the original
                  * PendingIntent
@@ -164,5 +236,14 @@ public class ShortListedFlats extends Fragment implements
     @Override
     public void onLocationChanged(Location location) {
         handleNewLocation( location );
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch ( v.getId() ) {
+            case R.id.searchLocation:
+                onSearchRequested();
+                break;
+        }
     }
 }

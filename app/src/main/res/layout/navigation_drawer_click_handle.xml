@@ -18,12 +18,12 @@
         android:layout_height="match_parent"
         tools:layout="@layout/search_options" />
 
-    <fragment
+<!--    <fragment
         android:id="@+id/shortlistedFlatsFragment"
         android:name="com.flatnflatmates.ShortList.ShortListedFlats"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:layout="@layout/shortlisted_flats" />
+        tools:layout="@layout/shortlisted_flats" />-->
 
     <fragment
         android:id="@+id/flatListViewFragment"
