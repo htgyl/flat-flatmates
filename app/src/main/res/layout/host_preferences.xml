@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_marginTop="20dp"
+            android:background="#ff000000" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="My Preferences"
+            android:textSize="25sp" />
+
+        <RadioGroup
+            android:id="@+id/genderPreferences"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/title"
+            android:layout_centerHorizontal="true"
+            android:orientation="horizontal"
+            android:padding="20dp">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight=".335"
+                android:background="@drawable/radio_state_change"
+                android:button="@null"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="Male"
+                android:textColor="@drawable/radio_text" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight=".335"
+                android:background="@drawable/radio_state_change"
+                android:button="@null"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="Female"
+                android:textColor="@drawable/radio_text" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight=".335"
+                android:background="@drawable/radio_state_change"
+                android:button="@null"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="Any"
+                android:textColor="@drawable/radio_text" />
+
+        </RadioGroup>
+
+        <RadioGroup
+            android:id="@+id/workPreferences"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/title"
+            android:layout_centerHorizontal="true"
+            android:orientation="horizontal"
+            android:padding="20dp">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight=".335"
+                android:background="@drawable/radio_state_change"
+                android:button="@null"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="Working"
+                android:textColor="@drawable/radio_text" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight=".335"
+                android:background="@drawable/radio_state_change"
+                android:button="@null"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="Student"
+                android:textColor="@drawable/radio_text" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight=".335"
+                android:background="@drawable/radio_state_change"
+                android:button="@null"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="Any"
+                android:textColor="@drawable/radio_text" />
+
+        </RadioGroup>
+
+        <RadioGroup
+            android:id="@+id/foodPreferences"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/title"
+            android:layout_centerHorizontal="true"
+            android:orientation="horizontal"
+            android:padding="20dp">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight=".335"
+                android:background="@drawable/radio_state_change"
+                android:button="@null"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="Veg"
+                android:textColor="@drawable/radio_text" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight=".335"
+                android:background="@drawable/radio_state_change"
+                android:button="@null"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="Non Veg"
+                android:textColor="@drawable/radio_text" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight=".335"
+                android:background="@drawable/radio_state_change"
+                android:button="@null"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="Any"
+                android:textColor="@drawable/radio_text" />
+
+        </RadioGroup>
+
+        <RadioGroup
+            android:id="@+id/smokePreferences"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/title"
+            android:layout_centerHorizontal="true"
+            android:orientation="horizontal"
+            android:padding="20dp">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight=".335"
+                android:background="@drawable/radio_state_change"
+                android:button="@null"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="Smoker"
+                android:textColor="@drawable/radio_text" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight=".335"
+                android:background="@drawable/radio_state_change"
+                android:button="@null"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="Non Smoker"
+                android:textColor="@drawable/radio_text" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight=".335"
+                android:background="@drawable/radio_state_change"
+                android:button="@null"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="Any"
+                android:textColor="@drawable/radio_text" />
+
+        </RadioGroup>
+
+        <RadioGroup
+            android:id="@+id/alcoholPreferences"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/title"
+            android:layout_centerHorizontal="true"
+            android:orientation="horizontal"
+            android:padding="20dp">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight=".335"
+                android:background="@drawable/radio_state_change"
+                android:button="@null"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="Alcoholic"
+                android:textColor="@drawable/radio_text" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight=".335"
+                android:background="@drawable/radio_state_change"
+                android:button="@null"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="Non Alcoholic"
+                android:textColor="@drawable/radio_text" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight=".335"
+                android:background="@drawable/radio_state_change"
+                android:button="@null"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="Any"
+                android:textColor="@drawable/radio_text" />
+
+        </RadioGroup>
+
+        <RadioGroup
+            android:id="@+id/petsPreferences"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/title"
+            android:layout_centerHorizontal="true"
+            android:orientation="horizontal"
+            android:padding="20dp">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight=".335"
+                android:background="@drawable/radio_state_change"
+                android:button="@null"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="Pets Allowed"
+                android:textColor="@drawable/radio_text" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight=".335"
+                android:background="@drawable/radio_state_change"
+                android:button="@null"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="Not Allowed"
+                android:textColor="@drawable/radio_text" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight=".335"
+                android:background="@drawable/radio_state_change"
+                android:button="@null"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="Doesn't Matter"
+                android:textColor="@drawable/radio_text" />
+
+        </RadioGroup>
+
+        <RadioGroup
+            android:id="@+id/guestPreferences"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/title"
+            android:layout_centerHorizontal="true"
+            android:orientation="horizontal"
+            android:padding="20dp">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight=".335"
+                android:background="@drawable/radio_state_change"
+                android:button="@null"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="Guest Allowed"
+                android:textColor="@drawable/radio_text" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight=".335"
+                android:background="@drawable/radio_state_change"
+                android:button="@null"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="Not Allowed"
+                android:textColor="@drawable/radio_text" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight=".335"
+                android:background="@drawable/radio_state_change"
+                android:button="@null"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="Doesn't Matter"
+                android:textColor="@drawable/radio_text" />
+        </RadioGroup>
+    </LinearLayout>
+</ScrollView>

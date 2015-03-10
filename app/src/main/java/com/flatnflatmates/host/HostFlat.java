@@ -36,7 +36,7 @@ public class HostFlat extends Fragment implements View.OnClickListener {
     Integer sumKitchen = 0;
 
     @Override
-    public View onCreateView( LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View layout = inflater.inflate(R.layout.host_flat, container, false);
 
         plusMaxPplButton = (Button) layout.findViewById(R.id.maxPeoplePlusButton);
@@ -65,83 +65,83 @@ public class HostFlat extends Fragment implements View.OnClickListener {
     }
 
     @Override
-    public void onClick( View v ) {
-        switch ( v.getId() ) {
+    public void onClick(View v) {
+        switch (v.getId()) {
             case R.id.maxPeoplePlusButton:
-                if( sumMaxPpl <= 16  ) {
+                if (sumMaxPpl <= 16) {
                     sumMaxPpl++;
-                    textMaxPplView.setText( sumMaxPpl+"" );
-                    if( sumMaxPpl >= 16 ){
+                    textMaxPplView.setText(sumMaxPpl + "");
+                    if (sumMaxPpl >= 16) {
                         sumMaxPpl = 17;
                         textMaxPplView.setText("16+");
                     }
                 }
                 break;
             case R.id.maxPeopleMinusButton:
-                if( sumMaxPpl >= 0  ) {
+                if (sumMaxPpl >= 0) {
                     sumMaxPpl--;
-                    textMaxPplView.setText( sumMaxPpl+"" );
-                    if( sumMaxPpl <= 0 ){
+                    textMaxPplView.setText(sumMaxPpl + "");
+                    if (sumMaxPpl <= 0) {
                         sumMaxPpl = 0;
                         textMaxPplView.setText("0");
                     }
                 }
                 break;
             case R.id.bathRoomPlusButton:
-                if( sumBathRoom <= 10  ) {
+                if (sumBathRoom <= 10) {
                     sumBathRoom++;
-                    textBathRoomView.setText( sumBathRoom+"" );
-                    if( sumBathRoom >= 10 ){
+                    textBathRoomView.setText(sumBathRoom + "");
+                    if (sumBathRoom >= 10) {
                         sumBathRoom = 11;
                         textBathRoomView.setText("10+");
                     }
                 }
                 break;
             case R.id.bathRoomMinusButton:
-                if( sumBathRoom >= 0  ) {
+                if (sumBathRoom >= 0) {
                     sumBathRoom--;
-                    textBathRoomView.setText( sumBathRoom+"" );
-                    if( sumBathRoom <= 0 ){
+                    textBathRoomView.setText(sumBathRoom + "");
+                    if (sumBathRoom <= 0) {
                         sumBathRoom = 0;
                         textBathRoomView.setText("0");
                     }
                 }
                 break;
             case R.id.bedRoomPlusButton:
-                if( sumBedRoom <= 16  ) {
+                if (sumBedRoom <= 16) {
                     sumBedRoom++;
-                    textBedRoomsView.setText( sumBedRoom+"" );
-                    if( sumBedRoom >= 16 ){
+                    textBedRoomsView.setText(sumBedRoom + "");
+                    if (sumBedRoom >= 16) {
                         sumBedRoom = 17;
                         textBedRoomsView.setText("16+");
                     }
                 }
                 break;
             case R.id.bedRoomMinusButton:
-                if( sumBedRoom >= 0  ) {
+                if (sumBedRoom >= 0) {
                     sumBedRoom--;
-                    textBedRoomsView.setText( sumBedRoom+"" );
-                    if( sumBedRoom <= 0 ){
+                    textBedRoomsView.setText(sumBedRoom + "");
+                    if (sumBedRoom <= 0) {
                         sumBedRoom = 0;
                         textBedRoomsView.setText("0");
                     }
                 }
                 break;
             case R.id.kitchenPlushBtn:
-                if( sumKitchen <= 8  ) {
+                if (sumKitchen <= 8) {
                     sumKitchen++;
-                    textKitchenView.setText( sumKitchen+"" );
-                    if( sumKitchen >= 8 ){
+                    textKitchenView.setText(sumKitchen + "");
+                    if (sumKitchen >= 8) {
                         sumKitchen = 9;
                         textKitchenView.setText("8+");
                     }
                 }
                 break;
             case R.id.kitchenMinusButton:
-                if( sumKitchen >= 0  ) {
+                if (sumKitchen >= 0) {
                     sumKitchen--;
-                    textKitchenView.setText( sumKitchen+"" );
-                    if( sumKitchen <= 0 ){
+                    textKitchenView.setText(sumKitchen + "");
+                    if (sumKitchen <= 0) {
                         sumKitchen = 0;
                         textKitchenView.setText("0");
                     }
