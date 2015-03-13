@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#303040"
-    tools:context="com.flatnflatmates.flatflatmates.NavigationDrawerFragment">
+    tools:context="com.flatnflatmates.flatflatmates.init.NavigationDrawerFragment">
 
     <LinearLayout
         android:id="@+id/containerLinearLayout"

@@ -10,7 +10,6 @@
     <uses-permission android:name="com.flatnflatmates.flatflatmates.permission.MAPS_RECEIVE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <!-- The following two permissions are not required to use
          Google Maps Android API v2, but are recommended. -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -29,7 +28,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name=".init.MainActivity"
             android:label="@string/title_activity_main">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -54,36 +53,38 @@
             android:value="@string/API_KEY" />
 
         <activity
-            android:name="com.flatnflatmates.host.HostActivity"
+            android:name=".host.HostActivity"
             android:label="@string/title_activity_host"></activity>
         <activity
-            android:name=".MenuActivity"
+            android:name=".init.MenuActivity"
             android:label="@string/title_activity_menu"></activity>
         <activity
-            android:name="com.flatnflatmates.host.HostImageUpload"
+            android:name=".host.HostImageUpload"
             android:label="@string/title_hostimageupload_menu"></activity>
         <activity
-            android:name="com.flatnflatmates.host.HostUploadActivity"
+            android:name=".host.HostUploadActivity"
             android:label="@string/title_hostimageupload_menu"></activity>
         <activity
-            android:name=".NavigationDrawerClickHandleActivity"
+            android:name=".init.NavigationDrawerClickHandleActivity"
             android:label="@string/title_activity_navigation_drawer"></activity>
         <activity
-            android:name="com.flatnflatmates.host.HostOptionsClick"
+            android:name=".host.HostOptionsClick"
             android:label="@string/title_activity_host_options_click"></activity>
         <activity
-            android:name="com.flatnflatmates.ShortList.ShortListedFlats"
-            android:label="@string/title_activity_host_options_click">
+            android:name=".GoogleMaps.GoogleMapsActivity"
+            android:label="@string/title_activity_host_options_click"
+            android:launchMode="singleTop" >
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH" />
             </intent-filter>
             <!-- Points to searchable activity -->
-            <meta-data android:name="android.app.default_searchable"
-                android:value=".ShortListedFlats" />
+            <meta-data
+                android:name="android.app.default_searchable"
+                android:value=".GoogleMaps.GoogleMapsActivity" />
             <meta-data
                 android:name="android.app.searchable"
-                android:resource="@xml/google_search" />
-            </activity>
+                android:resource="@xml/searchable" />
+        </activity>
     </application>
 
 </manifest>

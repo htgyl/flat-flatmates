@@ -2,32 +2,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.flatnflatmates.flatflatmates.NavigationDrawerClickHandleActivity">
+    tools:context="com.flatnflatmates.flatflatmates.init.NavigationDrawerClickHandleActivity">
 
     <fragment
         android:id="@+id/hostingOptionsFragment"
-        android:name="com.flatnflatmates.host.HostingOptions"
+        android:name="com.flatnflatmates.flatflatmates.host.HostingOptions"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:layout="@layout/hosting_options" />
 
     <fragment
         android:id="@+id/searchOptionsFragment"
-        android:name="com.flatnflatmates.Search.SearchOptions"
+        android:name="com.flatnflatmates.flatflatmates.Search.SearchOptions"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:layout="@layout/search_options" />
 
-<!--    <fragment
-        android:id="@+id/shortlistedFlatsFragment"
-        android:name="com.flatnflatmates.ShortList.ShortListedFlats"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout="@layout/shortlisted_flats" />-->
-
     <fragment
         android:id="@+id/flatListViewFragment"
-        android:name="com.flatnflatmates.ListView.FlatListView"
+        android:name="com.flatnflatmates.flatflatmates.ListView.FlatListView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:layout="@layout/flat_list_view" />
