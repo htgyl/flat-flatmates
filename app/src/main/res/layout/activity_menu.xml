@@ -26,7 +26,7 @@
 
     <fragment
         android:id="@+id/fragment_nav_drawer"
-        android:name="com.flatnflatmates.flatflatmates.init.NavigationDrawerFragment"
+        android:name="com.flatandflatmates.init.NavigationDrawerFragment"
         android:layout_width="@dimen/nav_drawer_width"
         android:layout_height="match_parent"
         android:layout_gravity="start"

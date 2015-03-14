@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.flatnflatmates.flatflatmates">
+    package="com.flatandflatmates">
 
     <!-- Permission - Internet Connect -->
     <permission
-        android:name="com.flatnflatmates.flatflatmates.permission.MAPS_RECEIVE"
+        android:name="com.flatandflatmates.permission.MAPS_RECEIVE"
         android:protectionLevel="signature" />
 
-    <uses-permission android:name="com.flatnflatmates.flatflatmates.permission.MAPS_RECEIVE" />
+    <uses-permission android:name="com.flatandflatmates.permission.MAPS_RECEIVE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <!-- The following two permissions are not required to use
@@ -28,7 +28,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".init.MainActivity"
+            android:name="com.flatandflatmates.init.MainActivity"
             android:label="@string/title_activity_main">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -53,34 +53,30 @@
             android:value="@string/API_KEY" />
 
         <activity
-            android:name=".host.HostActivity"
+            android:name="com.flatandflatmates.host.HostActivity"
             android:label="@string/title_activity_host"></activity>
         <activity
-            android:name=".init.MenuActivity"
+            android:name="com.flatandflatmates.init.MenuActivity"
             android:label="@string/title_activity_menu"></activity>
         <activity
-            android:name=".host.HostImageUpload"
+            android:name="com.flatandflatmates.host.HostImageUpload"
             android:label="@string/title_hostimageupload_menu"></activity>
         <activity
-            android:name=".host.HostUploadActivity"
+            android:name="com.flatandflatmates.host.HostUploadActivity"
             android:label="@string/title_hostimageupload_menu"></activity>
         <activity
-            android:name=".init.NavigationDrawerClickHandleActivity"
+            android:name="com.flatandflatmates.init.NavigationDrawerClickHandleActivity"
             android:label="@string/title_activity_navigation_drawer"></activity>
         <activity
-            android:name=".host.HostOptionsClick"
+            android:name="com.flatandflatmates.host.HostOptionsClick"
             android:label="@string/title_activity_host_options_click"></activity>
         <activity
-            android:name=".GoogleMaps.GoogleMapsActivity"
+            android:name="com.flatandflatmates.GoogleMaps.GoogleMapsActivity"
             android:label="@string/title_activity_host_options_click"
             android:launchMode="singleTop" >
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH" />
             </intent-filter>
-            <!-- Points to searchable activity -->
-            <meta-data
-                android:name="android.app.default_searchable"
-                android:value=".GoogleMaps.GoogleMapsActivity" />
             <meta-data
                 android:name="android.app.searchable"
                 android:resource="@xml/searchable" />

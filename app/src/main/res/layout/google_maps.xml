@@ -1,13 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.flatnflatmates.flatflatmates.GoogleMaps.GoogleMapsActivity">
+    tools:context="com.flatandflatmates.GoogleMaps.GoogleMapsActivity">
+
+    <com.flatandflatmates.GoogleMaps.CustomAutoCompleteTextView
+        android:id="@+id/atv_places"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:hint="@string/search_hint" />
 
     <fragment
         android:id="@+id/map"
+        android:layout_below="@id/atv_places"
         android:name="com.google.android.gms.maps.MapFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
@@ -16,16 +24,9 @@
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="(O)"
-        android:id="@+id/searchLocation"
-        android:layout_gravity="left" />
-
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/atv_places"
         android:text="(+)"
         android:id="@+id/currentLocation"
         android:layout_gravity="right" />
 
-</FrameLayout>
+</RelativeLayout>

@@ -38,7 +38,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_navigation_drawer">NavigationDrawerActivity</string>
     <string name="title_activity_host_options_click">HostOptionsClick</string>
-    <string name="API_KEY">AIzaSyCkLF9a70OLFpAWPukgvtSw2LzJJ-96c1E</string>
+    <string name="API_KEY">AIzaSyBA5nL6SstluIjzr_0DXoYbDenIrgE8_A8</string>
 
     <string name="btnTakePicture">Capture Image</string>
     <string name="btnRecordVideo">Record Video</string>

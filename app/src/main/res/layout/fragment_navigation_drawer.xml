@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#303040"
-    tools:context="com.flatnflatmates.flatflatmates.init.NavigationDrawerFragment">
+    tools:context="com.flatandflatmates.init.NavigationDrawerFragment">
 
     <LinearLayout
         android:id="@+id/containerLinearLayout"
@@ -22,5 +22,7 @@
         android:id="@+id/drawerList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/containerLinearLayout"></android.support.v7.widget.RecyclerView>
+        android:layout_below="@id/containerLinearLayout">
+
+    </android.support.v7.widget.RecyclerView>
 </RelativeLayout>
