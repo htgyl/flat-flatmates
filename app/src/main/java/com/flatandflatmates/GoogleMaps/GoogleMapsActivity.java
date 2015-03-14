@@ -87,10 +87,10 @@ public class GoogleMapsActivity extends Activity implements
 
                     @Override
                     public void onTextChanged(CharSequence s, int start, int before, int count) {
-                        //placesTask = new PlacesTask();
-                        //placesTask.execute(s.toString());
-
-                        doSearch(s.toString());
+                        placesTask = new PlacesTask();
+                        if(s.toString().length() > 4) {
+                            placesTask.execute(s.toString());
+                        }
                     }
 
                     @Override
@@ -138,7 +138,7 @@ public class GoogleMapsActivity extends Activity implements
     public Loader<Cursor> onCreateLoader(int arg0, Bundle query) {
         CursorLoader cLoader = null;
         if(arg0==0)
-            cLoader = new CursorLoader(getBaseContext(), PlaceProvider.SEARCH_URI, null, null, new String[]{ query.getString("query") }, null);
+            cLoader = new CursorLoader(this, PlaceProvider.SEARCH_URI, null, null, new String[]{ query.getString("query") }, null);
         else if(arg0==1)
             cLoader = new CursorLoader(getBaseContext(), PlaceProvider.DETAILS_URI, null, null, new String[]{ query.getString("query") }, null);
         return cLoader;
@@ -279,6 +279,43 @@ public class GoogleMapsActivity extends Activity implements
         handleNewLocation(location);
     }
 
+    private String getPlacesUrl(String qry){
+
+        try {
+            qry = "input=" + URLEncoder.encode(qry, "utf-8");
+        } catch (UnsupportedEncodingException e1) {
+            e1.printStackTrace();
+        }
+
+        // Sensor enabled
+        String sensor = "sensor=false";
+
+        // place type to be searched
+        String types = "types=geocode";
+
+        // Building the parameters to the web service
+        String parameters = qry+"&"+types+"&"+sensor+"&"+myKey;
+
+        // Output format
+        String output = "json";
+        // Building the url to the web service
+        String url = "https://maps.googleapis.com/maps/api/place/autocomplete/"+output+"?"+parameters;
+        return url;
+    }
+
+    private String getPlaces(String[] params){
+        // For storing data from web service
+        String data = "";
+        String url = getPlacesUrl(params[0]);
+        try{
+            // Fetching the data from web service in background
+            data = downloadUrl(url);
+        }catch(Exception e){
+            Log.d("Background Task",e.toString());
+        }
+        return data;
+    }
+
     private String getPlaceDetails(String reference){
         String data = "";
         String url = getPlaceDetailsUrl(reference);
@@ -353,42 +390,8 @@ public class GoogleMapsActivity extends Activity implements
 
         @Override
         protected String doInBackground(String... place) {
-            // For storing data from web service
-            String data = "";
 
-            // Obtain browser key from https://code.google.com/apis/console
-            String key = "key=AIzaSyBEAbh1uFPpWIG-KmBU2Y5Fyck4xcszx_0";
-
-            String input = "";
-
-            try {
-                input = "input=" + URLEncoder.encode(place[0], "utf-8");
-            } catch (UnsupportedEncodingException e1) {
-                e1.printStackTrace();
-            }
-
-            // place type to be searched
-            String types = "types=geocode";
-
-            // Sensor enabled
-            String sensor = "sensor=false";
-
-            // Building the parameters to the web service
-            String parameters = input + "&" + types + "&" + sensor + "&" + key;
-
-            // Output format
-            String output = "json";
-
-            // Building the url to the web service
-            String url = "https://maps.googleapis.com/maps/api/place/autocomplete/" + output + "?" + parameters;
-
-            try {
-                // Fetching the data from we service
-                data = downloadUrl(url);
-            } catch (Exception e) {
-                Log.d("Background Task", e.toString());
-            }
-            return data;
+            return getPlaces( place );
         }
 
         @Override

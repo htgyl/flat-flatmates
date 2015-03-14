@@ -52,6 +52,9 @@ public class PlaceProvider extends ContentProvider {
         // URI for "Go" button
         uriMatcher.addURI(AUTHORITY, "search", SEARCH );
 
+        // URI for suggestions in Search Dialog
+        uriMatcher.addURI(AUTHORITY, SearchManager.SUGGEST_URI_PATH_QUERY,SUGGESTIONS);
+
         // URI for Details
         uriMatcher.addURI(AUTHORITY, "details",DETAILS);
 
