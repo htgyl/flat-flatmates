@@ -82,15 +82,12 @@ public class GoogleMapsActivity extends Activity implements
                         .setFastestInterval(10 * 1000); // 10 second, in milliseconds
 
                 atvPlaces = (AutoCompleteTextView) findViewById(R.id.atv_places);
-                atvPlaces.setThreshold(1);
                 atvPlaces.addTextChangedListener(new TextWatcher() {
 
                     @Override
                     public void onTextChanged(CharSequence s, int start, int before, int count) {
                         placesTask = new PlacesTask();
-                        if(s.toString().length() > 4) {
-                            placesTask.execute(s.toString());
-                        }
+                        placesTask.execute(s.toString());
                     }
 
                     @Override
@@ -105,6 +102,32 @@ public class GoogleMapsActivity extends Activity implements
                 });
             }
         }
+    }
+
+    public boolean servicesOk() {
+        int isAvaliable = GooglePlayServicesUtil.isGooglePlayServicesAvailable(this);
+        if (isAvaliable == ConnectionResult.SUCCESS) {
+            return true;
+        } else if (GooglePlayServicesUtil.isUserRecoverableError(isAvaliable)) {
+            Dialog dialog = GooglePlayServicesUtil.getErrorDialog(isAvaliable, this, GPS_ERRORDIALOG_REQUEST);
+            dialog.show();
+        } else {
+            Toast.makeText(this, "Can't Resolve the Google Play", Toast.LENGTH_LONG).show();
+        }
+        return false;
+    }
+
+    private boolean initMap() {
+        if (gMap == null) {
+            MapFragment mapFrag = (MapFragment) getFragmentManager().findFragmentById(R.id.map);
+            gMap = mapFrag.getMap();
+            setUpMap();
+        }
+        return (gMap != null);
+    }
+
+    private void setUpMap() {
+        //gMap.addMarker(new MarkerOptions().position(new LatLng(0, 0)).title("Marker"));
     }
 
     /*private void handleIntent(Intent intent){
@@ -189,47 +212,6 @@ public class GoogleMapsActivity extends Activity implements
         }
     }
 
-    //Handles the new Location
-    private void handleNewLocation(Location location) {
-        double currentLatitude = location.getLatitude();
-        double currentLongitude = location.getLongitude();
-
-        LatLng latLng = new LatLng(currentLatitude, currentLongitude);
-
-        //mMap.addMarker(new MarkerOptions().position(new LatLng(currentLatitude, currentLongitude)).title("Current Location"));
-        MarkerOptions options = new MarkerOptions()
-                .position(latLng)
-                .title("I am here!");
-        gMap.addMarker(options);
-        gMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 10));
-    }
-
-    public boolean servicesOk() {
-        int isAvaliable = GooglePlayServicesUtil.isGooglePlayServicesAvailable(this);
-        if (isAvaliable == ConnectionResult.SUCCESS) {
-            return true;
-        } else if (GooglePlayServicesUtil.isUserRecoverableError(isAvaliable)) {
-            Dialog dialog = GooglePlayServicesUtil.getErrorDialog(isAvaliable, this, GPS_ERRORDIALOG_REQUEST);
-            dialog.show();
-        } else {
-            Toast.makeText(this, "Can't Resolve the Google Play", Toast.LENGTH_LONG).show();
-        }
-        return false;
-    }
-
-    private void setUpMap() {
-        gMap.addMarker(new MarkerOptions().position(new LatLng(0, 0)).title("Marker"));
-    }
-
-    private boolean initMap() {
-        if (gMap == null) {
-            MapFragment mapFrag = (MapFragment) getFragmentManager().findFragmentById(R.id.map);
-            gMap = mapFrag.getMap();
-            setUpMap();
-        }
-        return (gMap != null);
-    }
-
     @Override
     public void onConnected(Bundle bundle) {
         Location location = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
@@ -279,6 +261,20 @@ public class GoogleMapsActivity extends Activity implements
         handleNewLocation(location);
     }
 
+    //Handles the new Location
+    private void handleNewLocation(Location location) {
+        double currentLatitude = location.getLatitude();
+        double currentLongitude = location.getLongitude();
+
+        LatLng latLng = new LatLng(currentLatitude, currentLongitude);
+
+        //Add marker to the new Location
+        MarkerOptions options = new MarkerOptions().position(latLng).title("I am here!");
+        gMap.addMarker(options);
+        gMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 10));
+    }
+
+    //Returns the URL to get the Places Suggestion in Search Box.
     private String getPlacesUrl(String qry){
 
         try {
@@ -303,6 +299,7 @@ public class GoogleMapsActivity extends Activity implements
         return url;
     }
 
+    //Returns the places searched in autocomplete box
     private String getPlaces(String[] params){
         // For storing data from web service
         String data = "";
@@ -312,17 +309,6 @@ public class GoogleMapsActivity extends Activity implements
             data = downloadUrl(url);
         }catch(Exception e){
             Log.d("Background Task",e.toString());
-        }
-        return data;
-    }
-
-    private String getPlaceDetails(String reference){
-        String data = "";
-        String url = getPlaceDetailsUrl(reference);
-        try {
-            data = downloadUrl(url);
-        } catch (IOException e) {
-            e.printStackTrace();
         }
         return data;
     }
@@ -347,6 +333,18 @@ public class GoogleMapsActivity extends Activity implements
         return url;
     }
 
+    private String getPlaceDetails(String reference){
+        String data = "";
+        String url = getPlaceDetailsUrl(reference);
+        try {
+            data = downloadUrl(url);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return data;
+    }
+
+    //Creates an HttpConnection and get back the results from the provided URL.
     private String downloadUrl(String strUrl) throws IOException {
         String data = "";
         InputStream iStream = null;
@@ -437,13 +435,12 @@ public class GoogleMapsActivity extends Activity implements
 
             String[] from = new String[]{"description"};
             int[] to = new int[]{android.R.id.text1};
-            Log.d("All Places", result.toString());
+
             // Creating a SimpleAdapter for the AutoCompleteTextView
             SimpleAdapter adapter = new SimpleAdapter(getBaseContext(), result, android.R.layout.simple_list_item_1, from, to);
 
             // Setting the adapter
             atvPlaces.setAdapter(adapter);
-            atvPlaces.getOnItemSelectedListener();
         }
     }
 }

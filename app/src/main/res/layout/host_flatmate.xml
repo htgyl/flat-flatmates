@@ -11,6 +11,16 @@
         android:layout_weight="0"
         android:orientation="vertical">
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/primaryColor"
+            android:gravity="center"
+            android:padding="@dimen/abc_action_bar_default_height_material"
+            android:text="Describe your Space"
+            android:textColor="#CCC"
+            android:textSize="25sp" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -31,7 +41,10 @@
                 android:layout_gravity="center_horizontal"
                 android:textColor="#CCC"
                 android:background="@color/primaryColor"
-                android:layout_margin="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
                 android:layout_weight="2"
                 android:orientation="horizontal">
 
@@ -55,7 +68,7 @@
                     android:textColor="#CCC"
                     android:background="@color/primaryColor"
                     android:clickable="false"
-                    android:text="0"
+                    android:text="1"
                     android:textSize="30sp" />
 
                 <Button
@@ -89,7 +102,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_gravity="center_horizontal"
-                android:layout_margin="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
                 android:textColor="#CCC"
                 android:background="@color/primaryColor"
                 android:layout_weight="2"
@@ -149,7 +165,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_gravity="center_horizontal"
-                android:layout_margin="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
                 android:textColor="#CCC"
                 android:background="@color/primaryColor"
                 android:layout_weight="2"
@@ -210,7 +229,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_gravity="center_horizontal"
-                android:layout_margin="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
                 android:background="@color/primaryColor"
                 android:layout_weight="2"
                 android:orientation="horizontal">

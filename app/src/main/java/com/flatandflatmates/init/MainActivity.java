@@ -78,8 +78,8 @@ public class MainActivity extends FragmentActivity {
         Session session = Session.getActiveSession();
         if ( session != null  &&  session.isOpened() ) {
             // if the session is already open,
-            Intent myIntent = new Intent(this, MenuActivity.class );
-            startActivity(myIntent);
+            /*Intent myIntent = new Intent(this, MenuActivity.class );
+            startActivity(myIntent);*/
         } else {
             // otherwise present the login screen
             // and ask the person to login.
