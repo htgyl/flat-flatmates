@@ -9,6 +9,7 @@ import android.support.v7.app.ActionBarActivity;
 
 import com.flatandflatmates.GoogleMaps.GoogleMapsActivity;
 import com.flatandflatmates.R;
+import com.flatandflatmates.host.HostImageUpload;
 
 public class NavigationDrawerClickHandleActivity extends ActionBarActivity {
 
@@ -53,15 +54,8 @@ public class NavigationDrawerClickHandleActivity extends ActionBarActivity {
             transaction.addToBackStack(null);
         }
         if( fragmentIndex == 3 ){
-
-            Intent newIntent = getIntent();
-            Intent navClick = new Intent(this, GoogleMapsActivity.class);
-            if(Intent.ACTION_SEARCH.equals(newIntent.getAction())){
-                navClick.setAction(Intent.ACTION_SEARCH);
-            }else if(Intent.ACTION_VIEW.equals(newIntent.getAction())){
-                navClick.setAction(Intent.ACTION_VIEW);
-            }
-            startActivity(navClick);
+            Intent intent = new Intent( this, HostImageUpload.class );
+            startActivity(intent);
         }
         transaction.commit();
     }

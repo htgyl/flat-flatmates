@@ -1,32 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.flatandflatmates.GoogleMaps.GoogleMapsActivity">
 
-    <com.flatandflatmates.GoogleMaps.CustomAutoCompleteTextView
-        android:id="@+id/atv_places"
-        android:layout_width="fill_parent"
+    <TextView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:hint="@string/search_hint" />
+        android:background="@color/primaryColor"
+        android:gravity="center"
+        android:padding="@dimen/abc_action_bar_default_height_material"
+        android:text="Locate your Space"
+        android:textColor="#CCC"
+        android:textSize="25sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:id="@+id/searchLayout"
+        android:layout_weight="0"
+        android:layout_height="wrap_content">
+
+        <com.flatandflatmates.GoogleMaps.CustomAutoCompleteTextView
+            android:id="@+id/atv_places"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:completionThreshold="4"
+            android:layout_weight="1"
+            android:singleLine="true"
+            android:hint="@string/search_hint" />
+
+        <ImageButton
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/atv_places"
+            android:background="@drawable/ic_location"
+            android:id="@+id/currentLocation"
+            android:layout_gravity="right" />
+    </LinearLayout>
 
     <fragment
         android:id="@+id/map"
-        android:layout_below="@id/atv_places"
+        android:layout_weight="1"
+        android:layout_below="@id/searchLayout"
         android:name="com.google.android.gms.maps.MapFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content" />
 
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/atv_places"
-        android:text="(+)"
-        android:id="@+id/currentLocation"
-        android:layout_gravity="right" />
+        android:layout_weight="0"
+        android:layout_below="@id/map"
+        android:gravity="bottom|center"
+        android:orientation="vertical">
 
-</RelativeLayout>
+        <Button
+            android:id="@+id/roomNextButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center"
+            android:height="40dp"
+            android:background="@color/primaryColorDark"
+            android:clickable="true"
+            android:gravity="center|center_horizontal"
+            android:text="Save"
+            android:textColor="#CCC"
+            android:textSize="25sp" />
+    </LinearLayout>
+
+</LinearLayout>

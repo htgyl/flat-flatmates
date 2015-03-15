@@ -1,5 +1,6 @@
 package com.flatandflatmates.host;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -8,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.flatandflatmates.GoogleMaps.GoogleMapsActivity;
 import com.flatandflatmates.R;
 
 /**
@@ -18,12 +20,13 @@ public class HostRoom extends Fragment implements View.OnClickListener {
     Button plusMaxPplButton;
     Button minusMaxPplButton;
     TextView textMaxPplView;
-    Integer sumMaxPpl = 0;
+    Integer sumMaxPpl = 1;
 
     Button plusBathRoomButton;
     Button minusBathRoomButton;
     TextView textBathRoomView;
     Integer sumBathRoom = 0;
+    Button nextBtnClick;
 
     Button plusBedsButton;
     Button minusBedsButton;
@@ -43,6 +46,7 @@ public class HostRoom extends Fragment implements View.OnClickListener {
         textMaxPplView = (TextView) layout.findViewById(R.id.maxPeoplePerRoomTextView);
         textBathRoomView = (TextView) layout.findViewById(R.id.bathRoomPerRoomTextView);
         textBedView = (TextView) layout.findViewById(R.id.bedPerRoomTextview);
+        nextBtnClick = (Button) layout.findViewById(R.id.roomNextButton);
 
         plusMaxPplButton.setOnClickListener(this);
         minusMaxPplButton.setOnClickListener(this);
@@ -50,6 +54,7 @@ public class HostRoom extends Fragment implements View.OnClickListener {
         minusBathRoomButton.setOnClickListener(this);
         plusBedsButton.setOnClickListener(this);
         minusBedsButton.setOnClickListener(this);
+        nextBtnClick.setOnClickListener(this);
 
         return layout;
     }
@@ -68,12 +73,12 @@ public class HostRoom extends Fragment implements View.OnClickListener {
                 }
                 break;
             case R.id.maxPeoplePerRoomMinusButton:
-                if( sumMaxPpl >= 0  ) {
+                if( sumMaxPpl >= 1  ) {
                     sumMaxPpl--;
                     textMaxPplView.setText( sumMaxPpl+"" );
-                    if( sumMaxPpl <= 0 ){
-                        sumMaxPpl = 0;
-                        textMaxPplView.setText("0");
+                    if( sumMaxPpl <= 1 ){
+                        sumMaxPpl = 1;
+                        textMaxPplView.setText("1");
                     }
                 }
                 break;
@@ -115,6 +120,12 @@ public class HostRoom extends Fragment implements View.OnClickListener {
                         sumBeds = 0;
                         textBedView.setText("0");
                     }
+                }
+                break;
+            case R.id.roomNextButton:
+                if( sumMaxPpl != 0 ) {
+                    Intent navClick = new Intent(getActivity(),GoogleMapsActivity.class);
+                    startActivity(navClick);
                 }
                 break;
         }

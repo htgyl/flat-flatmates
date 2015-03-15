@@ -18,8 +18,6 @@ public class SearchOptions extends Fragment {
     @Override
     public View onCreateView( LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         View view = inflater.inflate(R.layout.host_description, container, false);
-        Intent intent = new Intent(getActivity(), HostImageUpload.class);
-        startActivity(intent);
         return view;
     }
 }
