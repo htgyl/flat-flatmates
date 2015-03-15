@@ -19,6 +19,10 @@ import android.widget.Button;
 import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
+import com.flatandflatmates.HttpClient.ServiceProvider;
+import com.flatandflatmates.Interfaces.GetPlaces;
+import com.flatandflatmates.JavaObjects.Places;
+import com.flatandflatmates.JavaObjects.Prediction;
 import com.flatandflatmates.R;
 import com.flatandflatmates.host.HostFlat;
 import com.flatandflatmates.host.HostFlatMate;
@@ -36,6 +40,7 @@ import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.squareup.okhttp.OkHttpClient;
 
 import org.json.JSONObject;
 
@@ -50,6 +55,12 @@ import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.List;
 
+import retrofit.Callback;
+import retrofit.RestAdapter;
+import retrofit.RetrofitError;
+import retrofit.client.OkClient;
+import retrofit.client.Response;
+
 /**
  * Created by applect on 20/2/15.
  */
@@ -62,7 +73,7 @@ public class GoogleMapsActivity extends Activity implements
     private static final int GPS_ERRORDIALOG_REQUEST = 9001;
     private final static int CONNECTION_FAILURE_RESOLUTION_REQUEST = 9000;
     private GoogleMap gMap;
-    private String myKey = "key=AIzaSyBEAbh1uFPpWIG-KmBU2Y5Fyck4xcszx_0";
+    private String myKey = "AIzaSyBEAbh1uFPpWIG-KmBU2Y5Fyck4xcszx_0";
     private GoogleApiClient mGoogleApiClient;
     private LocationRequest mLocationRequest;
     private Button searchButton;
@@ -70,6 +81,7 @@ public class GoogleMapsActivity extends Activity implements
     PlacesTask placesTask;
     ParserTask parserTask;
     private int spaceType;
+    private static final String BASE_DOMAIN = "https://maps.googleapis.com/maps/api/place";
     HashMap<String, String> hashMapSpaceDetails;
 
     @Override
@@ -112,8 +124,9 @@ public class GoogleMapsActivity extends Activity implements
 
                     @Override
                     public void onTextChanged(CharSequence s, int start, int before, int count) {
-                        placesTask = new PlacesTask();
-                        placesTask.execute(s.toString());
+                        getPlacesData(s.toString());
+                        //placesTask = new PlacesTask();
+                        //placesTask.execute(s.toString());
                     }
 
                     @Override
@@ -154,6 +167,64 @@ public class GoogleMapsActivity extends Activity implements
 
     private void setUpMap() {
         //gMap.addMarker(new MarkerOptions().position(new LatLng(0, 0)).title("Marker"));
+    }
+
+    private void getPlacesData(String input){
+
+        try {
+            input = URLEncoder.encode(input, "utf-8");
+        } catch (UnsupportedEncodingException e1) {
+            e1.printStackTrace();
+        }
+
+        // Sensor enabled
+        String sensor = "false";
+
+        // place type to be searched
+        String types = "geocode";
+
+        // Building the parameters to the web service
+        setupHttpClient(sensor, types, myKey, input);
+
+    }
+
+    private void setupHttpClient(String sensor, String type, String key, String input ){
+        // Create a very simple REST adapter which points the GitHub API endpoint.
+        GetPlaces client = ServiceProvider.createService(GetPlaces.class, BASE_DOMAIN);
+
+        // Fetch and print a list of the contributors to this library.
+        List<Places> places = null;
+        try {
+            client.listPlaces(sensor, type, key, input, new Callback<Places>() {
+                @Override
+                public void success(Places places, Response response) {
+
+                    Log.d("Data",response.toString());
+                    Log.d("Places",places.toString());
+                    /*for (Places place : places) {
+                        Prediction prediction = (Prediction) place.getPredictions();
+                        System.out.println( prediction.getDescription() + " (" + prediction.getId() + ")");
+                    }*/
+                }
+
+                @Override
+                public void failure(RetrofitError error) {
+                    Log.d("Error in Error", error.toString());
+                }
+            });
+        } catch (RetrofitError e){
+            Log.d("Error Here", e.toString());
+        }
+
+/*
+        String[] from = new String[]{"description"};
+        int[] to = new int[]{android.R.id.text1};
+
+        // Creating a SimpleAdapter for the AutoCompleteTextView
+        SimpleAdapter adapter = new SimpleAdapter(getBaseContext(), result, android.R.layout.simple_list_item_1, from, to);
+
+        // Setting the adapter
+        atvPlaces.setAdapter(adapter);*/
     }
 
     /*private void handleIntent(Intent intent){

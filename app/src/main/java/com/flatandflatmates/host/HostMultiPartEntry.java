@@ -3,6 +3,11 @@ package com.flatandflatmates.host;
 /**
  * Created by applect on 6/3/15.
  */
+
+public class HostMultiPartEntry{
+
+}
+/*
 import java.io.FilterOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -66,4 +71,4 @@ public class HostMultiPartEntry extends MultipartEntity
             this.listener.transferred(this.transferred);
         }
     }
-}
+}*/

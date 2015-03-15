@@ -128,6 +128,7 @@ public class HostRoom extends Fragment implements View.OnClickListener {
                 break;
             case R.id.roomNextButton:
                 if( sumMaxPpl != 0 ) {
+                    hashMap = new HashMap<String, Integer>();
                     hashMap.put("maxPpl",sumMaxPpl);
                     hashMap.put("bathRooms",sumBathRoom);
                     hashMap.put("beds",sumBeds);

@@ -4,6 +4,11 @@ package com.flatandflatmates.host;
  * Created by applect on 6/3/15.
  */
 
+public class HostUploadActivity{
+
+}
+/*
+
 import java.io.File;
 import java.io.IOException;
 
@@ -85,9 +90,11 @@ public class HostUploadActivity extends Activity {
 
     }
 
-    /**
+    */
+/**
      * Displaying captured image/video on the screen
-     */
+     *//*
+
     private void previewMedia(boolean isImage) {
         // Checking whether captured media is image or video
         if (isImage) {
@@ -112,9 +119,11 @@ public class HostUploadActivity extends Activity {
         }
     }
 
-    /**
+    */
+/**
      * Uploading the file to server
-     */
+     *//*
+
     private class UploadFileToServer extends AsyncTask<Void, Integer, String> {
         @Override
         protected void onPreExecute() {
@@ -199,9 +208,11 @@ public class HostUploadActivity extends Activity {
 
     }
 
-    /**
+    */
+/**
      * Method to show alert dialog
-     */
+     *//*
+
     private void showAlert(String message) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage(message).setTitle("Response from Servers")
@@ -215,4 +226,4 @@ public class HostUploadActivity extends Activity {
         alert.show();
     }
 
-}
+}*/

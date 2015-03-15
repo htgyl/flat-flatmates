@@ -129,6 +129,7 @@ public class HostPg extends Fragment implements View.OnClickListener {
                 break;
             case R.id.pgNextButton:
                 if( sumMaxPpl != 0 ) {
+                    hashMap = new HashMap<String, Integer>();
                     hashMap.put("maxPpl",sumMaxPpl);
                     hashMap.put("bathRooms",sumBathRoom);
                     hashMap.put("bedRooms",sumBeds);
