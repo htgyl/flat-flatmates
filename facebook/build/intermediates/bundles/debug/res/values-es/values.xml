@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/D:/Projects/Flat%20&%20Flatmates/facebook/res/values-es/strings.xml -->
+    <!-- From: file:/home/applect/AndroidStudioProjects/Flat&FlatMates/facebook/res/values-es/strings.xml -->
     <eat-comment/>
     <string name="com_facebook_choose_friends">Elige Amigos</string>
     <string name="com_facebook_dialogloginactivity_ok_button">Aceptar</string>

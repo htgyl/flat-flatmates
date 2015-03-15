@@ -12,6 +12,8 @@ import android.widget.TextView;
 import com.flatandflatmates.GoogleMaps.GoogleMapsActivity;
 import com.flatandflatmates.R;
 
+import java.util.HashMap;
+
 /**
  * Created by applect on 21/2/15.
  */
@@ -38,6 +40,8 @@ public class HostFlat extends Fragment implements View.OnClickListener {
     Integer sumKitchen = 0;
 
     Button nextButtonClick;
+    HashMap<String, Integer> hashMap;
+    public static final String SPACE_INTENT = "com.flatandflatmate.intent.action.FLAT_DETAILS";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -156,7 +160,13 @@ public class HostFlat extends Fragment implements View.OnClickListener {
                 break;
             case R.id.flatNextButton:
                 if( sumMaxPpl != 0 ) {
+                    hashMap.put("maxPpl",sumMaxPpl);
+                    hashMap.put("bathRooms",sumBathRoom);
+                    hashMap.put("bedRooms",sumBedRoom);
+                    hashMap.put("kitchens",sumKitchen);
                     Intent navClick = new Intent(getActivity(),GoogleMapsActivity.class);
+                    navClick.setAction(SPACE_INTENT);
+                    navClick.putExtra("spaceDetails", hashMap);
                     startActivity(navClick);
                 }
                 break;

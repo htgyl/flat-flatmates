@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.app.LoaderManager;
 import android.content.CursorLoader;
+import android.content.Intent;
 import android.content.IntentSender;
 import android.content.Loader;
 import android.database.Cursor;
@@ -19,6 +20,10 @@ import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
 import com.flatandflatmates.R;
+import com.flatandflatmates.host.HostFlat;
+import com.flatandflatmates.host.HostFlatMate;
+import com.flatandflatmates.host.HostPg;
+import com.flatandflatmates.host.HostRoom;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.location.LocationRequest;
@@ -64,6 +69,8 @@ public class GoogleMapsActivity extends Activity implements
     AutoCompleteTextView atvPlaces;
     PlacesTask placesTask;
     ParserTask parserTask;
+    private int spaceType;
+    HashMap<String, String> hashMapSpaceDetails;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,6 +78,25 @@ public class GoogleMapsActivity extends Activity implements
         if (servicesOk()) {
             setContentView(R.layout.google_maps);
             if (initMap()) {
+
+                Intent intent = getIntent();
+                if (HostFlat.SPACE_INTENT.equals(intent.getAction())) {
+                    hashMapSpaceDetails = (HashMap<String, String>) intent.getSerializableExtra("spaceDetails");
+                    spaceType = 1;
+                }
+                if (HostFlatMate.SPACE_INTENT.equals(intent.getAction())) {
+                    hashMapSpaceDetails = (HashMap<String, String>) intent.getSerializableExtra("spaceDetails");
+                    spaceType = 2;
+                }
+                if (HostRoom.SPACE_INTENT.equals(intent.getAction())) {
+                    hashMapSpaceDetails = (HashMap<String, String>) intent.getSerializableExtra("spaceDetails");
+                    spaceType = 3;
+                }
+                if (HostPg.SPACE_INTENT.equals(intent.getAction())) {
+                    hashMapSpaceDetails = (HashMap<String, String>) intent.getSerializableExtra("spaceDetails");
+                    spaceType = 4;
+                }
+
                 mGoogleApiClient = new GoogleApiClient.Builder(this)
                         .addApi(LocationServices.API)
                         .addConnectionCallbacks(this)
