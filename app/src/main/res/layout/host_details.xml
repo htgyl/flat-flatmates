@@ -11,6 +11,16 @@
         android:layout_weight="1"
         android:orientation="vertical">
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/primaryColor"
+            android:gravity="center"
+            android:padding="@dimen/abc_action_bar_default_height_material"
+            android:text="Provide Additional Details"
+            android:textColor="#CCC"
+            android:textSize="20sp" />
+
         <Button
             android:id="@+id/hostDescription"
             android:layout_width="match_parent"
