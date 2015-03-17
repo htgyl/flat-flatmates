@@ -2,21 +2,17 @@ package com.flatandflatmates.GoogleMaps;
 
 import android.app.Activity;
 import android.app.Dialog;
-import android.app.LoaderManager;
-import android.content.CursorLoader;
 import android.content.Intent;
 import android.content.IntentSender;
-import android.content.Loader;
 import android.database.Cursor;
 import android.location.Location;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
-import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
 import com.flatandflatmates.HttpClient.ServiceProvider;
@@ -40,25 +36,13 @@ import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.squareup.okhttp.OkHttpClient;
-
-import org.json.JSONObject;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.List;
 
 import retrofit.Callback;
-import retrofit.RestAdapter;
 import retrofit.RetrofitError;
-import retrofit.client.OkClient;
 import retrofit.client.Response;
 
 /**
@@ -67,8 +51,7 @@ import retrofit.client.Response;
 public class GoogleMapsActivity extends Activity implements
         GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener,
-        LocationListener,
-        LoaderManager.LoaderCallbacks<Cursor>{
+        LocationListener{
 
     private static final int GPS_ERRORDIALOG_REQUEST = 9001;
     private final static int CONNECTION_FAILURE_RESOLUTION_REQUEST = 9000;
@@ -78,8 +61,6 @@ public class GoogleMapsActivity extends Activity implements
     private LocationRequest mLocationRequest;
     private Button searchButton;
     AutoCompleteTextView atvPlaces;
-    PlacesTask placesTask;
-    ParserTask parserTask;
     private int spaceType;
     private static final String BASE_DOMAIN = "https://maps.googleapis.com/maps/api/place";
     HashMap<String, String> hashMapSpaceDetails;
@@ -201,10 +182,9 @@ public class GoogleMapsActivity extends Activity implements
 
                     Log.d("Data",response.toString());
                     Log.d("Places",places.toString());
-                    /*for (Places place : places) {
-                        Prediction prediction = (Prediction) place.getPredictions();
-                        System.out.println( prediction.getDescription() + " (" + prediction.getId() + ")");
-                    }*/
+                    List<Prediction> predictions = places.getPredictions();
+                    ArrayAdapter<Prediction> adapter = new ArrayAdapter<Prediction>(GoogleMapsActivity.this,android.R.layout.simple_list_item_1, predictions);
+                    atvPlaces.setAdapter(adapter);
                 }
 
                 @Override
@@ -215,64 +195,6 @@ public class GoogleMapsActivity extends Activity implements
         } catch (RetrofitError e){
             Log.d("Error Here", e.toString());
         }
-
-/*
-        String[] from = new String[]{"description"};
-        int[] to = new int[]{android.R.id.text1};
-
-        // Creating a SimpleAdapter for the AutoCompleteTextView
-        SimpleAdapter adapter = new SimpleAdapter(getBaseContext(), result, android.R.layout.simple_list_item_1, from, to);
-
-        // Setting the adapter
-        atvPlaces.setAdapter(adapter);*/
-    }
-
-    /*private void handleIntent(Intent intent){
-        if(Intent.ACTION_SEARCH.equals(intent.getAction())){
-            doSearch(intent.getStringExtra(SearchManager.QUERY));
-        }else if(Intent.ACTION_VIEW.equals(intent.getAction())){
-            getPlace(intent.getStringExtra(SearchManager.EXTRA_DATA_KEY));
-        }
-    }
-
-    @Override
-    protected void onNewIntent(Intent intent) {
-        super.onNewIntent( intent );
-        setIntent(intent);
-        handleIntent(intent);
-    }*/
-
-    private void doSearch(String query){
-        Bundle data = new Bundle();
-        data.putString("query", query);
-        getLoaderManager().restartLoader(0, data, this);
-    }
-
-    private void getPlace(String query){
-        Bundle data = new Bundle();
-        data.putString("query", query);
-        getLoaderManager().restartLoader(1, data, this);
-    }
-
-    @Override
-    public Loader<Cursor> onCreateLoader(int arg0, Bundle query) {
-        CursorLoader cLoader = null;
-        if(arg0==0)
-            cLoader = new CursorLoader(this, PlaceProvider.SEARCH_URI, null, null, new String[]{ query.getString("query") }, null);
-        else if(arg0==1)
-            cLoader = new CursorLoader(getBaseContext(), PlaceProvider.DETAILS_URI, null, null, new String[]{ query.getString("query") }, null);
-        return cLoader;
-    }
-
-    @Override
-    public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
-
-        showLocations(data);
-    }
-
-    @Override
-    public void onLoaderReset(Loader<Cursor> loader) {
-
     }
 
     private void showLocations(Cursor c){
@@ -369,175 +291,5 @@ public class GoogleMapsActivity extends Activity implements
         MarkerOptions options = new MarkerOptions().position(latLng).title("I am here!");
         gMap.addMarker(options);
         gMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 10));
-    }
-
-    //Returns the URL to get the Places Suggestion in Search Box.
-    private String getPlacesUrl(String qry){
-
-        try {
-            qry = "input=" + URLEncoder.encode(qry, "utf-8");
-        } catch (UnsupportedEncodingException e1) {
-            e1.printStackTrace();
-        }
-
-        // Sensor enabled
-        String sensor = "sensor=false";
-
-        // place type to be searched
-        String types = "types=geocode";
-
-        // Building the parameters to the web service
-        String parameters = qry+"&"+types+"&"+sensor+"&"+myKey;
-
-        // Output format
-        String output = "json";
-        // Building the url to the web service
-        String url = "https://maps.googleapis.com/maps/api/place/autocomplete/"+output+"?"+parameters;
-        return url;
-    }
-
-    //Returns the places searched in autocomplete box
-    private String getPlaces(String[] params){
-        // For storing data from web service
-        String data = "";
-        String url = getPlacesUrl(params[0]);
-        try{
-            // Fetching the data from web service in background
-            data = downloadUrl(url);
-        }catch(Exception e){
-            Log.d("Background Task",e.toString());
-        }
-        return data;
-    }
-
-    private String getPlaceDetailsUrl(String ref){
-
-        // reference of place
-        String reference = "reference="+ref;
-
-        // Sensor enabled
-        String sensor = "sensor=false";
-
-        // Building the parameters to the web service
-        String parameters = reference+"&"+sensor+"&"+myKey;
-
-        // Output format
-        String output = "json";
-
-        // Building the url to the web service
-        String url = "https://maps.googleapis.com/maps/api/place/details/"+output+"?"+parameters;
-
-        return url;
-    }
-
-    private String getPlaceDetails(String reference){
-        String data = "";
-        String url = getPlaceDetailsUrl(reference);
-        try {
-            data = downloadUrl(url);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return data;
-    }
-
-    //Creates an HttpConnection and get back the results from the provided URL.
-    private String downloadUrl(String strUrl) throws IOException {
-        String data = "";
-        InputStream iStream = null;
-        HttpURLConnection urlConnection = null;
-        try {
-            URL url = new URL(strUrl);
-
-            // Creating an http connection to communicate with url
-            urlConnection = (HttpURLConnection) url.openConnection();
-
-            // Connecting to url
-            urlConnection.connect();
-
-            // Reading data from url
-            iStream = urlConnection.getInputStream();
-
-            BufferedReader br = new BufferedReader(new InputStreamReader(iStream));
-
-            StringBuffer sb = new StringBuffer();
-
-            String line = "";
-            while ((line = br.readLine()) != null) {
-                sb.append(line);
-            }
-
-            data = sb.toString();
-
-            br.close();
-
-        } catch (Exception e) {
-            Log.d("Exception", e.toString());
-        } finally {
-            iStream.close();
-            urlConnection.disconnect();
-        }
-        return data;
-    }
-
-    // Fetches all places from GooglePlaces AutoComplete Web Service
-    private class PlacesTask extends AsyncTask<String, Void, String> {
-
-        @Override
-        protected String doInBackground(String... place) {
-
-            return getPlaces( place );
-        }
-
-        @Override
-        protected void onPostExecute(String result) {
-            super.onPostExecute(result);
-
-            // Creating ParserTask
-            parserTask = new ParserTask();
-
-            // Starting Parsing the JSON string returned by Web Service
-            parserTask.execute(result);
-        }
-    }
-
-    /**
-     * A class to parse the Google Places in JSON format
-     */
-    private class ParserTask extends AsyncTask<String, Integer, List<HashMap<String, String>>> {
-
-        JSONObject jObject;
-
-        @Override
-        protected List<HashMap<String, String>> doInBackground(String... jsonData) {
-
-            List<HashMap<String, String>> places = null;
-
-            PlaceJSONParser placeJsonParser = new PlaceJSONParser();
-
-            try {
-                jObject = new JSONObject(jsonData[0]);
-
-                // Getting the parsed data as a List construct
-                places = placeJsonParser.parse(jObject);
-
-            } catch (Exception e) {
-                Log.d("Exception", e.toString());
-            }
-            return places;
-        }
-
-        @Override
-        protected void onPostExecute(List<HashMap<String, String>> result) {
-
-            String[] from = new String[]{"description"};
-            int[] to = new int[]{android.R.id.text1};
-
-            // Creating a SimpleAdapter for the AutoCompleteTextView
-            SimpleAdapter adapter = new SimpleAdapter(getBaseContext(), result, android.R.layout.simple_list_item_1, from, to);
-
-            // Setting the adapter
-            atvPlaces.setAdapter(adapter);
-        }
     }
 }

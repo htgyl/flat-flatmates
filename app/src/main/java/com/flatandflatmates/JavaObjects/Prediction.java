@@ -11,6 +11,10 @@ public class Prediction {
     private String place_id;
     private String reference;
 
+    @Override
+    public String toString() {
+        return this.description;
+    }
     /**
      *
      * @return
