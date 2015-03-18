@@ -10,6 +10,8 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
@@ -17,6 +19,9 @@ import android.widget.Toast;
 
 import com.flatandflatmates.HttpClient.ServiceProvider;
 import com.flatandflatmates.Interfaces.GetPlaces;
+import com.flatandflatmates.JavaObjects.GeometryLocation;
+import com.flatandflatmates.JavaObjects.PlaceDetail;
+import com.flatandflatmates.JavaObjects.PlaceDetailsResult;
 import com.flatandflatmates.JavaObjects.Places;
 import com.flatandflatmates.JavaObjects.Prediction;
 import com.flatandflatmates.R;
@@ -165,11 +170,11 @@ public class GoogleMapsActivity extends Activity implements
         String types = "geocode";
 
         // Building the parameters to the web service
-        setupHttpClient(sensor, types, myKey, input);
+        setupHttpClientGetPlaces(sensor, types, myKey, input);
 
     }
 
-    private void setupHttpClient(String sensor, String type, String key, String input ){
+    private void setupHttpClientGetPlaces(String sensor, String type, String key, String input ){
         // Create a very simple REST adapter which points the GitHub API endpoint.
         GetPlaces client = ServiceProvider.createService(GetPlaces.class, BASE_DOMAIN);
 
@@ -180,11 +185,18 @@ public class GoogleMapsActivity extends Activity implements
                 @Override
                 public void success(Places places, Response response) {
 
-                    Log.d("Data",response.toString());
-                    Log.d("Places",places.toString());
-                    List<Prediction> predictions = places.getPredictions();
+                    final List<Prediction> predictions = places.getPredictions();
                     ArrayAdapter<Prediction> adapter = new ArrayAdapter<Prediction>(GoogleMapsActivity.this,android.R.layout.simple_list_item_1, predictions);
                     atvPlaces.setAdapter(adapter);
+
+                    atvPlaces.setOnItemClickListener(new AdapterView.OnItemClickListener()
+                    {
+                        public void onItemClick(AdapterView<?> parent, View v, int pos, long id) {
+
+                            Prediction clickedPrediction = predictions.get(pos);
+                            getPlaceDetailData(clickedPrediction.getReference());
+                        };
+                    });
                 }
 
                 @Override
@@ -197,17 +209,65 @@ public class GoogleMapsActivity extends Activity implements
         }
     }
 
-    private void showLocations(Cursor c){
+    private void getPlaceDetailData(String input){
+
+        try {
+            input = URLEncoder.encode(input, "utf-8");
+        } catch (UnsupportedEncodingException e1) {
+            e1.printStackTrace();
+        }
+
+        // reference of place
+        String reference = input;
+
+        // Sensor enabled
+        String sensor = "false";
+
+        // Building the parameters to the web service
+        setupHttpClientGetPlaceDetails(sensor, myKey, reference);
+
+    }
+
+    private void setupHttpClientGetPlaceDetails(String sensor, String key, String input ){
+        // Create a very simple REST adapter which points the GitHub API endpoint.
+        GetPlaces client = ServiceProvider.createService(GetPlaces.class, BASE_DOMAIN);
+
+        // Fetch and print a list of the contributors to this library.
+        try {
+            client.getPlaceDetails(sensor, key, input, new Callback<PlaceDetail>() {
+                @Override
+                public void success(PlaceDetail placeDetails, Response response) {
+
+                    PlaceDetailsResult placeDetailResult = placeDetails.getResult();
+                    GeometryLocation geometryLocation = placeDetailResult.getGeometry();
+                    com.flatandflatmates.JavaObjects.Location location = geometryLocation.getLocation();
+
+                    showLocations( location );
+                    Log.d("TAGBBB", String.valueOf(location.getLat()));
+                    Log.d("TAGBBC", String.valueOf(location.getLng()));
+                }
+
+                @Override
+                public void failure(RetrofitError error) {
+                    Log.d("Error in Error", error.toString());
+                }
+            });
+        } catch (RetrofitError e){
+            Log.d("Error Here", e.toString());
+        }
+    }
+
+    private void showLocations(com.flatandflatmates.JavaObjects.Location location){
         MarkerOptions markerOptions = null;
         LatLng position = null;
         gMap.clear();
-        while(c.moveToNext()){
-            markerOptions = new MarkerOptions();
-            position = new LatLng(Double.parseDouble(c.getString(1)),Double.parseDouble(c.getString(2)));
-            markerOptions.position(position);
-            markerOptions.title(c.getString(0));
-            gMap.addMarker(markerOptions);
-        }
+
+        markerOptions = new MarkerOptions();
+        position = new LatLng(location.getLat(),location.getLng());
+        markerOptions.position(position);
+        markerOptions.title("I am Here");
+        gMap.addMarker(markerOptions);
+
         if(position!=null){
             CameraUpdate cameraPosition = CameraUpdateFactory.newLatLng(position);
             gMap.animateCamera(cameraPosition);

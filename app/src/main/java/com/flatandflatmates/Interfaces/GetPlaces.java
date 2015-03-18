@@ -1,12 +1,12 @@
 package com.flatandflatmates.Interfaces;
 
+import com.flatandflatmates.JavaObjects.PlaceDetail;
 import com.flatandflatmates.JavaObjects.Places;
 
 import java.util.List;
 
 import retrofit.Callback;
 import retrofit.http.GET;
-import retrofit.http.Path;
 import retrofit.http.Query;
 
 /**
@@ -21,4 +21,14 @@ public interface GetPlaces {
             @Query("input") String input,
             Callback<Places> cb
     );
+
+    @GET("/details/json")
+    void getPlaceDetails(
+            @Query("sensor") String sensor,
+            @Query("key") String key,
+            @Query("reference") String reference,
+            Callback<PlaceDetail> cb
+    );
+
+
 }
