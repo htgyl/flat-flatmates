@@ -11,6 +11,16 @@
         android:layout_weight="0"
         android:orientation="vertical">
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/primaryColor"
+            android:gravity="center"
+            android:padding="@dimen/abc_action_bar_default_height_material"
+            android:text="Describe your Space"
+            android:textColor="#CCC"
+            android:textSize="25sp" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -29,21 +39,24 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_gravity="center_horizontal"
-                android:textColor="#CCC"
-                android:background="@color/primaryColor"
-                android:layout_margin="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
                 android:layout_weight="2"
-                android:orientation="horizontal">
+                android:background="@color/primaryColor"
+                android:orientation="horizontal"
+                android:textColor="#CCC">
 
                 <Button
                     android:id="@+id/maxPeopleMinusButton"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:textColor="#CCC"
                     android:background="@color/primaryColor"
                     android:clickable="true"
                     android:text="-"
+                    android:textColor="#CCC"
                     android:textSize="25sp" />
 
                 <TextView
@@ -52,10 +65,10 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
-                    android:textColor="#CCC"
                     android:background="@color/primaryColor"
                     android:clickable="false"
-                    android:text="0"
+                    android:text="1"
+                    android:textColor="#CCC"
                     android:textSize="30sp" />
 
                 <Button
@@ -63,10 +76,10 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:textColor="#CCC"
                     android:background="@color/primaryColor"
                     android:clickable="true"
                     android:text="+"
+                    android:textColor="#CCC"
                     android:textSize="25sp" />
             </LinearLayout>
         </LinearLayout>
@@ -89,21 +102,24 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_gravity="center_horizontal"
-                android:layout_margin="15dp"
-                android:textColor="#CCC"
-                android:background="@color/primaryColor"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
                 android:layout_weight="2"
-                android:orientation="horizontal">
+                android:background="@color/primaryColor"
+                android:orientation="horizontal"
+                android:textColor="#CCC">
 
                 <Button
                     android:id="@+id/bathRoomMinusButton"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:textColor="#CCC"
                     android:background="@color/primaryColor"
                     android:clickable="true"
                     android:text="-"
+                    android:textColor="#CCC"
                     android:textSize="25sp" />
 
                 <TextView
@@ -111,22 +127,22 @@
                     style="@android:style/Widget.Button"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:textColor="#CCC"
-                    android:background="@color/primaryColor"
                     android:layout_weight="2"
+                    android:background="@color/primaryColor"
                     android:clickable="false"
                     android:text="0"
+                    android:textColor="#CCC"
                     android:textSize="30sp" />
 
                 <Button
                     android:id="@+id/bathRoomPlusButton"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:textColor="#CCC"
-                    android:background="@color/primaryColor"
                     android:layout_weight="1"
+                    android:background="@color/primaryColor"
                     android:clickable="true"
                     android:text="+"
+                    android:textColor="#CCC"
                     android:textSize="25sp" />
             </LinearLayout>
         </LinearLayout>
@@ -149,21 +165,24 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_gravity="center_horizontal"
-                android:layout_margin="15dp"
-                android:textColor="#CCC"
-                android:background="@color/primaryColor"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
                 android:layout_weight="2"
-                android:orientation="horizontal">
+                android:background="@color/primaryColor"
+                android:orientation="horizontal"
+                android:textColor="#CCC">
 
                 <Button
                     android:id="@+id/bedRoomMinusButton"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:clickable="true"
-                    android:textColor="#CCC"
                     android:background="@color/primaryColor"
+                    android:clickable="true"
                     android:text="-"
+                    android:textColor="#CCC"
                     android:textSize="25sp" />
 
                 <TextView
@@ -171,22 +190,22 @@
                     style="@android:style/Widget.Button"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:textColor="#CCC"
-                    android:background="@color/primaryColor"
                     android:layout_weight="2"
+                    android:background="@color/primaryColor"
                     android:clickable="false"
                     android:text="0"
+                    android:textColor="#CCC"
                     android:textSize="30sp" />
 
                 <Button
                     android:id="@+id/bedRoomPlusButton"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:textColor="#CCC"
-                    android:background="@color/primaryColor"
                     android:layout_weight="1"
+                    android:background="@color/primaryColor"
                     android:clickable="true"
                     android:text="+"
+                    android:textColor="#CCC"
                     android:textSize="25sp" />
             </LinearLayout>
         </LinearLayout>
@@ -210,9 +229,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_gravity="center_horizontal"
-                android:layout_margin="15dp"
-                android:background="@color/primaryColor"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
                 android:layout_weight="2"
+                android:background="@color/primaryColor"
                 android:orientation="horizontal">
 
                 <Button
@@ -220,10 +242,10 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:textColor="#CCC"
                     android:background="@color/primaryColor"
                     android:clickable="true"
                     android:text="-"
+                    android:textColor="#CCC"
                     android:textSize="25sp" />
 
                 <TextView
@@ -232,10 +254,10 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
-                    android:textColor="#CCC"
                     android:background="@color/primaryColor"
                     android:clickable="false"
                     android:text="0"
+                    android:textColor="#CCC"
                     android:textSize="30sp" />
 
                 <Button
@@ -243,10 +265,10 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:textColor="#CCC"
                     android:background="@color/primaryColor"
                     android:clickable="true"
                     android:text="+"
+                    android:textColor="#CCC"
                     android:textSize="25sp" />
             </LinearLayout>
         </LinearLayout>
@@ -255,9 +277,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:orientation="vertical"
         android:layout_weight="1"
-        android:gravity="bottom|center">
+        android:gravity="bottom|center"
+        android:orientation="vertical">
 
         <Button
             android:id="@+id/flatNextButton"
@@ -265,11 +287,11 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal|center"
             android:height="40dp"
+            android:background="@color/primaryColorDark"
             android:clickable="true"
             android:gravity="center|center_horizontal"
             android:text="Next"
             android:textColor="#CCC"
-            android:background="@color/primaryColorDark"
             android:textSize="25sp" />
     </LinearLayout>
 </LinearLayout>

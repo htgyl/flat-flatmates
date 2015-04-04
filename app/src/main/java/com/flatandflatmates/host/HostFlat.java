@@ -1,5 +1,6 @@
 package com.flatandflatmates.host;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -8,7 +9,10 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.flatandflatmates.GoogleMaps.GoogleMapsActivity;
 import com.flatandflatmates.R;
+
+import java.util.HashMap;
 
 /**
  * Created by applect on 21/2/15.
@@ -18,7 +22,7 @@ public class HostFlat extends Fragment implements View.OnClickListener {
     Button plusMaxPplButton;
     Button minusMaxPplButton;
     TextView textMaxPplView;
-    Integer sumMaxPpl = 0;
+    Integer sumMaxPpl = 1;
 
     Button plusBathRoomButton;
     Button minusBathRoomButton;
@@ -34,6 +38,10 @@ public class HostFlat extends Fragment implements View.OnClickListener {
     Button minusKitchenButton;
     TextView textKitchenView;
     Integer sumKitchen = 0;
+
+    Button nextButtonClick;
+    HashMap<String, Integer> hashMap;
+    public static final String SPACE_INTENT = "com.flatandflatmate.intent.action.FLAT_DETAILS";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -51,6 +59,7 @@ public class HostFlat extends Fragment implements View.OnClickListener {
         textBathRoomView = (TextView) layout.findViewById(R.id.bathRoomTextView);
         textBedRoomsView = (TextView) layout.findViewById(R.id.bedRoomTextview);
         textKitchenView = (TextView) layout.findViewById(R.id.kitchenTextView);
+        nextButtonClick = (Button) layout.findViewById(R.id.flatNextButton);
 
         plusMaxPplButton.setOnClickListener(this);
         minusMaxPplButton.setOnClickListener(this);
@@ -60,6 +69,8 @@ public class HostFlat extends Fragment implements View.OnClickListener {
         minusBedRoomsButton.setOnClickListener(this);
         plusKitchenButton.setOnClickListener(this);
         minusKitchenButton.setOnClickListener(this);
+
+        nextButtonClick.setOnClickListener(this);
 
         return layout;
     }
@@ -78,12 +89,12 @@ public class HostFlat extends Fragment implements View.OnClickListener {
                 }
                 break;
             case R.id.maxPeopleMinusButton:
-                if (sumMaxPpl >= 0) {
+                if (sumMaxPpl >= 1) {
                     sumMaxPpl--;
                     textMaxPplView.setText(sumMaxPpl + "");
-                    if (sumMaxPpl <= 0) {
-                        sumMaxPpl = 0;
-                        textMaxPplView.setText("0");
+                    if (sumMaxPpl <= 1) {
+                        sumMaxPpl = 1;
+                        textMaxPplView.setText("1");
                     }
                 }
                 break;
@@ -145,6 +156,19 @@ public class HostFlat extends Fragment implements View.OnClickListener {
                         sumKitchen = 0;
                         textKitchenView.setText("0");
                     }
+                }
+                break;
+            case R.id.flatNextButton:
+                if( sumMaxPpl != 0 ) {
+                    hashMap = new HashMap<String, Integer>();
+                    hashMap.put("maxPpl",sumMaxPpl);
+                    hashMap.put("bathRooms",sumBathRoom);
+                    hashMap.put("bedRooms",sumBedRoom);
+                    hashMap.put("kitchens",sumKitchen);
+                    Intent navClick = new Intent(getActivity(),GoogleMapsActivity.class);
+                    navClick.setAction(SPACE_INTENT);
+                    navClick.putExtra("spaceDetails", hashMap);
+                    startActivity(navClick);
                 }
                 break;
         }

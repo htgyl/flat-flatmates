@@ -6,8 +6,20 @@
     android:orientation="vertical"
     android:weightSum="1">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:id="@+id/textViewDescription"
+        android:layout_height="wrap_content"
+        android:background="@color/primaryColor"
+        android:gravity="center"
+        android:padding="@dimen/abc_action_bar_default_height_material"
+        android:text="Host your Space"
+        android:textColor="#CCC"
+        android:textSize="25sp" />
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/hostingOptions"
+        android:layout_below="@id/textViewDescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp">
