@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F6F6F6"
     android:orientation="vertical"
     android:weightSum="1">
 
     <TextView
+        android:id="@+id/property_type_text_view"
         android:layout_width="match_parent"
-        android:id="@+id/textViewDescription"
         android:layout_height="wrap_content"
-        android:background="@color/primaryColor"
         android:gravity="center"
         android:padding="@dimen/abc_action_bar_default_height_material"
-        android:text="Host your Space"
-        android:textColor="#CCC"
+        android:text="What Type of Property You Have ?"
+        android:textColor="#8d9299"
         android:textSize="25sp" />
 
     <android.support.v7.widget.RecyclerView
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
         android:id="@+id/hostingOptions"
-        android:layout_below="@id/textViewDescription"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp">
-    </android.support.v7.widget.RecyclerView>
+        android:layout_height="wrap_content"/>
 </RelativeLayout>

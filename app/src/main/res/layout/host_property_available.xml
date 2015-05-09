@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scrollViewTextView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/propRelativeLayout"
+        android:background="#F6F6F6">
+
+        <TextView
+            android:id="@+id/avlbl_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#F6F6F6"
+            android:gravity="center"
+            android:padding="@dimen/abc_action_bar_default_height_material"
+            android:text="Provide the details of Available Space"
+            android:textColor="#8d9299"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/avlbl_rooms_text_view"
+            android:layout_below="@id/avlbl_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="No of Rooms Available"
+            android:textColor="#454545"
+            android:textSize="20sp" />
+
+        <LinearLayout
+            android:id="@+id/avlbl_rooms_linear_layout"
+            android:layout_below="@id/avlbl_rooms_text_view"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/avlbl_minus_room_numbers"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#FFF"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="-"
+                android:textColor="#2c3e50"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/avlbl_room_numbers"
+                android:layout_weight="2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#FFF"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="0"
+                android:textColor="#454545"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/avlbl_plus_room_numbers"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#FFF"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="+"
+                android:textColor="#2c3e50"
+                android:textSize="25sp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/avlbl_is_shared_text_view"
+            android:layout_below="@id/avlbl_rooms_linear_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:padding="5dp"
+            android:text="Is room Shared ?"
+            android:textColor="#454545"
+            android:textSize="20sp" />
+
+        <RadioGroup
+            android:id="@+id/avlbl_is_shared_radio_group"
+            android:layout_below="@id/avlbl_is_shared_text_view"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Yes"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="No"/>
+
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/avlbl_att_bthrm_text_view"
+            android:layout_below="@id/avlbl_is_shared_radio_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:padding="5dp"
+            android:text="Attached Bathroom ?"
+            android:textColor="#454545"
+            android:textSize="20sp" />
+
+        <RadioGroup
+            android:id="@+id/avlbl_att_bthrm_radio_group"
+            android:layout_below="@id/avlbl_att_bthrm_text_view"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Yes"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="No"/>
+
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/avlbl_frn_bed_text_view"
+            android:layout_below="@id/avlbl_att_bthrm_radio_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:padding="5dp"
+            android:text="Furnished with Bed ?"
+            android:textColor="#454545"
+            android:textSize="20sp" />
+
+        <RadioGroup
+            android:id="@+id/avlbl_frn_bed_radio_group"
+            android:layout_below="@id/avlbl_frn_bed_text_view"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Yes"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="No"/>
+
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/avlbl_balcony_text_view"
+            android:layout_below="@id/avlbl_frn_bed_radio_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:padding="5dp"
+            android:text="Room has Balcony ?"
+            android:textColor="#454545"
+            android:textSize="20sp" />
+
+        <RadioGroup
+            android:id="@+id/avlbl_balcony_radio_group"
+            android:layout_below="@id/avlbl_balcony_text_view"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Yes"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="No"/>
+
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/avlb_next_button"
+            android:layout_below="@id/avlbl_balcony_radio_group"
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/primaryColor"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="Next"
+            android:textColor="#F6F6F6"
+            android:textSize="25sp" />
+
+    </RelativeLayout>
+
+</ScrollView>

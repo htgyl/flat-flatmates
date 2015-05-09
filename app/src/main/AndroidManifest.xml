@@ -53,17 +53,8 @@
             android:value="@string/API_KEY" />
 
         <activity
-            android:name="com.flatandflatmates.host.HostActivity"
-            android:label="@string/title_activity_host"></activity>
-        <activity
             android:name="com.flatandflatmates.init.MenuActivity"
             android:label="@string/title_activity_menu"></activity>
-        <activity
-            android:name="com.flatandflatmates.host.HostImageUpload"
-            android:label="@string/title_hostimageupload_menu"></activity>
-        <activity
-            android:name="com.flatandflatmates.host.HostUploadActivity"
-            android:label="@string/title_hostimageupload_menu"></activity>
         <activity
             android:name="com.flatandflatmates.init.NavigationDrawerClickHandleActivity"
             android:label="@string/title_activity_navigation_drawer"></activity>

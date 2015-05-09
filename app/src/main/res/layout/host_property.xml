@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scroll_view_text_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/prop_relative_layout"
+        android:background="#F6F6F6">
+
+        <TextView
+            android:id="@+id/prop_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#F6F6F6"
+            android:gravity="center"
+            android:padding="@dimen/abc_action_bar_default_height_material"
+            android:text="Add More About Your Property"
+            android:textColor="#8d9299"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/prop_rooms_text_view"
+            android:layout_below="@id/prop_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="No of Rooms"
+            android:textColor="#454545"
+            android:textSize="20sp" />
+
+        <LinearLayout
+            android:id="@+id/prop_room_linear_layout"
+            android:layout_below="@id/prop_rooms_text_view"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/prop_minus_room_numbers"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#FFF"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="-"
+                android:textColor="#2c3e50"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/prop_room_numbers_val"
+                android:layout_weight="2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#FFF"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="0"
+                android:textColor="#454545"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/prop_plus_room_numbers"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#FFF"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="+"
+                android:textColor="#2c3e50"
+                android:textSize="25sp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_marginTop="20dp"
+            android:id="@+id/prop_bathrooms_text_view"
+            android:layout_below="@id/prop_room_linear_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="No of Bathrooms"
+            android:textColor="#454545"
+            android:textSize="20sp" />
+
+        <LinearLayout
+            android:id="@+id/prop_bathroom_linear_layout"
+            android:layout_below="@id/prop_bathrooms_text_view"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/prop_minus_bathroom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#FFF"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="-"
+                android:textColor="#2c3e50"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/prop_bathroom_numbers_val"
+                android:layout_weight="2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#FFF"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="0"
+                android:textColor="#454545"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/prop_plus_bathroom"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#FFF"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="+"
+                android:textColor="#2c3e50"
+                android:textSize="25sp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_marginTop="20dp"
+            android:id="@+id/prop_ttl_ppl_text_view"
+            android:layout_below="@id/prop_bathroom_linear_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="People already living in"
+            android:textColor="#454545"
+            android:textSize="20sp" />
+
+        <LinearLayout
+            android:id="@+id/prop_ttl_ppl_linear_layout"
+            android:layout_below="@id/prop_ttl_ppl_text_view"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/prop_minus_ttl_ppl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#FFF"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="-"
+                android:textColor="#2c3e50"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/prop_ttl_ppl_numbers_val"
+                android:layout_weight="2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#FFF"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="0"
+                android:textColor="#454545"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/prop_plus_ttl_ppl"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#FFF"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="+"
+                android:textColor="#2c3e50"
+                android:textSize="25sp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_marginTop="20dp"
+            android:id="@+id/prop_balcony_text_view"
+            android:layout_below="@id/prop_ttl_ppl_linear_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="Balconies"
+            android:textColor="#454545"
+            android:textSize="20sp" />
+
+        <LinearLayout
+            android:id="@+id/prop_balcony_linear_layout"
+            android:layout_below="@id/prop_balcony_text_view"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/prop_minus_balcony"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#FFF"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="-"
+                android:textColor="#2c3e50"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/prop_balcony_numbers_val"
+                android:layout_weight="2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#FFF"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="0"
+                android:textColor="#454545"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/prop_plus_balcony"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#FFF"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="+"
+                android:textColor="#2c3e50"
+                android:textSize="25sp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/prop_next_button"
+            android:layout_below="@id/prop_balcony_linear_layout"
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/primaryColor"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="Next"
+            android:textColor="#F6F6F6"
+            android:textSize="25sp" />
+
+    </RelativeLayout>
+
+</ScrollView>

@@ -118,7 +118,7 @@ public class MainActivity extends FragmentActivity {
 
     //This method get back the result data from the new intent Activated.
     @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         uiHelper.onActivityResult(requestCode, resultCode, data);
     }
