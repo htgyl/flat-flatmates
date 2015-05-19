@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="48dp"
-    android:background="@drawable/custom_bc"
+    android:layout_height="wrap_content"
+    android:background="#F6F6F6"
     android:clickable="true"
     android:orientation="horizontal">
 
@@ -21,8 +21,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        android:textColor="#CCC"
+        android:textColor="#2c3e50"
         android:layout_gravity="center_vertical"
         android:layout_marginLeft="72dp"
-        android:text="Home" />
+        android:text="Home"
+        android:textSize="25sp"/>
 </LinearLayout>

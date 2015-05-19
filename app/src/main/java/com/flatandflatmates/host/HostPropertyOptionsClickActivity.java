@@ -8,7 +8,7 @@ import android.os.Bundle;
 
 import com.flatandflatmates.R;
 
-public class HostOptionsClick extends ActionBarActivity {
+public class HostPropertyOptionsClickActivity extends ActionBarActivity {
 
     private static final int PROPERTY= 0;
 
@@ -33,17 +33,15 @@ public class HostOptionsClick extends ActionBarActivity {
     }
 
     //Method which shows the Fragment dynamically.
-    private void showFragment(int fragmentIndex, boolean addToBackStack) {
+    private void showFragment( int fragmentIndex, boolean addToBackStack ) {
 
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction transaction = fm.beginTransaction();
 
         transaction.show( propTypeFragment );
-
         if (addToBackStack) {
             transaction.addToBackStack(null);
         }
-
         transaction.commit();
     }
 }

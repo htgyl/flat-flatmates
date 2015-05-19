@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/main_background_color"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/host_prop_add_hsno"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="House No. / Building Name"/>
+
+    <EditText
+        android:id="@+id/host_prop_add_strtnm"
+        android:layout_below="@id/host_prop_add_hsno"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Street Name / LandMark"/>
+
+    <EditText
+        android:id="@+id/host_prop_add_city"
+        android:layout_below="@id/host_prop_add_strtnm"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="City"/>
+
+    <EditText
+        android:id="@+id/host_prop_add_state"
+        android:layout_below="@id/host_prop_add_city"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="State"/>
+
+    <EditText
+        android:id="@+id/host_prop_add_postal_code"
+        android:layout_below="@id/host_prop_add_state"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Postal Code"/>
+
+    <EditText
+        android:id="@+id/host_prop_add_country"
+        android:layout_below="@id/host_prop_add_postal_code"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Country"/>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@id/host_prop_add_country"
+        android:layout_marginTop="20dp"
+        android:gravity="center_horizontal|bottom"
+        android:paddingTop="2dp" >
+
+        <TextView
+            android:id="@+id/host_prop_add_next_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/primary_color"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="Next"
+            android:textColor="@color/main_background_color"
+            android:textSize="25sp" />
+    </LinearLayout>
+
+</RelativeLayout>

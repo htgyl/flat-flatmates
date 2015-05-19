@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/host_property_fragment"
-        android:name="com.flatandflatmates.host.HostPropertyFragment"
+        android:name="com.flatandflatmates.host.HostPropertyDetailsFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:layout="@layout/hosting_options" />

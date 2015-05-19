@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.flatandflatmates">
+    package="com.flatandflatmates" >
 
     <!-- Permission - Internet Connect -->
     <permission
@@ -10,11 +10,12 @@
     <uses-permission android:name="com.flatandflatmates.permission.MAPS_RECEIVE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <!-- The following two permissions are not required to use
-         Google Maps Android API v2, but are recommended. -->
+    <!--
+         The following two permissions are not required to use
+         Google Maps Android API v2, but are recommended.
+    -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
 
@@ -26,10 +27,10 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme" >
         <activity
-            android:name="com.flatandflatmates.init.MainActivity"
-            android:label="@string/title_activity_main">
+            android:name=".init.MainActivity"
+            android:label="@string/title_activity_main" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -37,32 +38,32 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.facebook.LoginActivity"
-            android:label="@string/app_name" />
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
-            android:value="@string/facebook_app_id"></meta-data>
-
+            android:value="@string/facebook_app_id" />
         <meta-data
             android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version"></meta-data>
-
+            android:value="@integer/google_play_services_version" />
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="@string/API_KEY" />
 
         <activity
-            android:name="com.flatandflatmates.init.MenuActivity"
-            android:label="@string/title_activity_menu"></activity>
+            android:name=".init.MenuActivity"
+            android:label="@string/title_activity_menu" />
         <activity
-            android:name="com.flatandflatmates.init.NavigationDrawerClickHandleActivity"
-            android:label="@string/title_activity_navigation_drawer"></activity>
+            android:name=".init.NavigationDrawerClickHandleActivity"
+            android:label="@string/title_activity_navigation_drawer" />
         <activity
-            android:name="com.flatandflatmates.host.HostOptionsClick"
-            android:label="@string/title_activity_host_options_click"></activity>
+            android:name=".host.HostPropertyOptionsClickActivity"
+            android:label="@string/title_activity_host_options_click" />
         <activity
-            android:name="com.flatandflatmates.GoogleMaps.GoogleMapsActivity"
+            android:name=".GoogleMaps.GoogleMapsActivity"
             android:label="@string/title_activity_host_options_click"
             android:launchMode="singleTop" >
             <intent-filter>
@@ -72,10 +73,17 @@
                 <action android:name="com.flatandflatmate.intent.action.ROOM_DETAILS" />
                 <action android:name="com.flatandflatmate.intent.action.FLAT_DETAILS" />
             </intent-filter>
+
             <meta-data
                 android:name="android.app.searchable"
                 android:resource="@xml/searchable" />
         </activity>
+        <activity
+            android:name=".host.HostPropertyAddress"
+            android:label="@string/title_activity_host_property_address" />
+        <activity
+            android:name=".host.HostPropertyOwnerPreferences"
+            android:label="@string/title_activity_host_property_owner_preferences" />
     </application>
 
 </manifest>

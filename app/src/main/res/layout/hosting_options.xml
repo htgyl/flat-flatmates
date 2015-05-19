@@ -2,9 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F6F6F6"
-    android:orientation="vertical"
-    android:weightSum="1">
+    android:background="@color/main_background_color"
+    android:orientation="vertical" >
 
     <TextView
         android:id="@+id/property_type_text_view"
@@ -13,15 +12,24 @@
         android:gravity="center"
         android:padding="@dimen/abc_action_bar_default_height_material"
         android:text="What Type of Property You Have ?"
-        android:textColor="#8d9299"
+        android:textColor="@color/title_text_color"
         android:textSize="25sp" />
 
-    <android.support.v7.widget.RecyclerView
-        android:layout_alignParentBottom="true"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginBottom="20dp"
-        android:id="@+id/hostingOptions"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@id/property_type_text_view"
+        android:layout_marginTop="20dp"
+        android:gravity="center_horizontal|bottom"
+        android:paddingTop="2dp" >
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="5dp"
+            android:id="@+id/hostingOptions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
 </RelativeLayout>

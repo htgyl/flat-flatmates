@@ -24,7 +24,7 @@ import com.flatandflatmates.JavaObjects.PlaceDetailsResult;
 import com.flatandflatmates.JavaObjects.Places;
 import com.flatandflatmates.JavaObjects.Prediction;
 import com.flatandflatmates.R;
-import com.flatandflatmates.host.HostPropertyFragment;
+import com.flatandflatmates.host.HostPropertyDetailsFragment;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.location.LocationRequest;
@@ -47,9 +47,10 @@ import retrofit.RetrofitError;
 import retrofit.client.Response;
 
 /**
- * Created by applect on 20/2/15.
+ * Created by Hitesh Goel on 20/2/15.
  */
 public class GoogleMapsActivity extends Activity implements
+        View.OnClickListener,
         GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener,
         LocationListener{
@@ -61,8 +62,9 @@ public class GoogleMapsActivity extends Activity implements
     private GoogleApiClient mGoogleApiClient;
     private LocationRequest mLocationRequest;
     private Button searchButton;
+    private Button addAddressButton;
     AutoCompleteTextView atvPlaces;
-    private int spaceType;
+    private int propType;
     private static final String BASE_DOMAIN = "https://maps.googleapis.com/maps/api/place";
     HashMap<String, String> hashMapSpaceDetails;
 
@@ -74,10 +76,8 @@ public class GoogleMapsActivity extends Activity implements
             if (initMap()) {
 
                 Intent intent = getIntent();
-                if (HostPropertyFragment.SPACE_INTENT.equals(intent.getAction())) {
-                    hashMapSpaceDetails = (HashMap<String, String>) intent.getSerializableExtra("spaceDetails");
-                    spaceType = 1;
-                }
+
+                propType = (int) intent.getSerializableExtra("propertyType");
 
                 mGoogleApiClient = new GoogleApiClient.Builder(this)
                         .addApi(LocationServices.API)
@@ -89,14 +89,12 @@ public class GoogleMapsActivity extends Activity implements
                         .setInterval(60 * 1000)        // 60 seconds, in milliseconds
                         .setFastestInterval(10 * 1000); // 10 second, in milliseconds
 
-                atvPlaces = (AutoCompleteTextView) findViewById(R.id.atv_places);
+                /*atvPlaces = (AutoCompleteTextView) findViewById(R.id.atv_places);
                 atvPlaces.addTextChangedListener(new TextWatcher() {
 
                     @Override
                     public void onTextChanged(CharSequence s, int start, int before, int count) {
                         getPlacesData(s.toString());
-                        //placesTask = new PlacesTask();
-                        //placesTask.execute(s.toString());
                     }
 
                     @Override
@@ -108,7 +106,11 @@ public class GoogleMapsActivity extends Activity implements
                     public void beforeTextChanged(CharSequence s, int start, int count, int after) {
                         // TODO Auto-generated method stub
                     }
-                });
+                });*/
+
+                addAddressButton = (Button) findViewById(R.id.add_address_button);
+
+                addAddressButton.setOnClickListener(this);
             }
         }
     }
@@ -128,7 +130,7 @@ public class GoogleMapsActivity extends Activity implements
 
     private boolean initMap() {
         if (gMap == null) {
-            MapFragment mapFrag = (MapFragment) getFragmentManager().findFragmentById(R.id.map);
+            MapFragment mapFrag = (MapFragment) getFragmentManager().findFragmentById(R.id.locate_property_on_map);
             gMap = mapFrag.getMap();
             setUpMap();
         }
@@ -326,6 +328,7 @@ public class GoogleMapsActivity extends Activity implements
 
     //Handles the new Location
     private void handleNewLocation(Location location) {
+
         double currentLatitude = location.getLatitude();
         double currentLongitude = location.getLongitude();
 
@@ -335,5 +338,12 @@ public class GoogleMapsActivity extends Activity implements
         MarkerOptions options = new MarkerOptions().position(latLng).title("I am here!");
         gMap.addMarker(options);
         gMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 10));
+    }
+
+    @Override
+    public void onClick(View v) {
+        if(v.getId() == R.id.add_address_button){
+            //Call the Add Address Fragment
+        }
     }
 }

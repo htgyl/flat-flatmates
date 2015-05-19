@@ -2,6 +2,7 @@
 
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/scroll_view_text_view"
+    android:fillViewport="true"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
@@ -9,17 +10,17 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/prop_relative_layout"
-        android:background="#F6F6F6">
+        android:background="@color/main_background_color">
 
         <TextView
             android:id="@+id/prop_text_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#F6F6F6"
+            android:background="@color/main_background_color"
             android:gravity="center"
             android:padding="@dimen/abc_action_bar_default_height_material"
             android:text="Add More About Your Property"
-            android:textColor="#8d9299"
+            android:textColor="@color/title_text_color"
             android:textSize="25sp" />
 
         <TextView
@@ -28,15 +29,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:padding="5dp"
+            android:padding="3dp"
             android:text="No of Rooms"
-            android:textColor="#454545"
-            android:textSize="20sp" />
+            android:textColor="@color/main_text_color"
+            android:textSize="17sp" />
 
         <LinearLayout
             android:id="@+id/prop_room_linear_layout"
             android:layout_below="@id/prop_rooms_text_view"
             android:layout_width="match_parent"
+            android:padding="3dp"
+            android:background="@color/white_color"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:layout_height="wrap_content">
@@ -46,36 +49,30 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="#FFF"
                 android:gravity="center"
-                android:padding="5dp"
                 android:text="-"
-                android:textColor="#2c3e50"
-                android:textSize="25sp" />
+                android:textColor="@color/text_button_color"
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/prop_room_numbers_val"
                 android:layout_weight="2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="#FFF"
                 android:gravity="center"
-                android:padding="5dp"
                 android:text="0"
-                android:textColor="#454545"
-                android:textSize="25sp" />
+                android:textColor="@color/main_text_color"
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/prop_plus_room_numbers"
                 android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="#FFF"
                 android:gravity="center"
-                android:padding="5dp"
                 android:text="+"
-                android:textColor="#2c3e50"
-                android:textSize="25sp" />
+                android:textColor="@color/text_button_color"
+                android:textSize="20sp" />
 
         </LinearLayout>
 
@@ -86,15 +83,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:padding="5dp"
+            android:padding="3dp"
             android:text="No of Bathrooms"
-            android:textColor="#454545"
-            android:textSize="20sp" />
+            android:textColor="@color/main_text_color"
+            android:textSize="17sp" />
 
         <LinearLayout
             android:id="@+id/prop_bathroom_linear_layout"
             android:layout_below="@id/prop_bathrooms_text_view"
             android:layout_width="match_parent"
+            android:padding="3dp"
+            android:background="@color/white_color"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:layout_height="wrap_content">
@@ -104,36 +103,30 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="#FFF"
                 android:gravity="center"
-                android:padding="5dp"
                 android:text="-"
-                android:textColor="#2c3e50"
-                android:textSize="25sp" />
+                android:textColor="@color/text_button_color"
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/prop_bathroom_numbers_val"
                 android:layout_weight="2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="#FFF"
                 android:gravity="center"
-                android:padding="5dp"
                 android:text="0"
-                android:textColor="#454545"
-                android:textSize="25sp" />
+                android:textColor="@color/main_text_color"
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/prop_plus_bathroom"
                 android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="#FFF"
                 android:gravity="center"
-                android:padding="5dp"
                 android:text="+"
-                android:textColor="#2c3e50"
-                android:textSize="25sp" />
+                android:textColor="@color/text_button_color"
+                android:textSize="20sp" />
 
         </LinearLayout>
 
@@ -144,15 +137,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:padding="5dp"
+            android:padding="3dp"
             android:text="People already living in"
-            android:textColor="#454545"
-            android:textSize="20sp" />
+            android:textColor="@color/main_text_color"
+            android:textSize="17sp" />
 
         <LinearLayout
             android:id="@+id/prop_ttl_ppl_linear_layout"
             android:layout_below="@id/prop_ttl_ppl_text_view"
             android:layout_width="match_parent"
+            android:padding="3dp"
+            android:background="@color/white_color"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:layout_height="wrap_content">
@@ -162,36 +157,30 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="#FFF"
                 android:gravity="center"
-                android:padding="5dp"
                 android:text="-"
-                android:textColor="#2c3e50"
-                android:textSize="25sp" />
+                android:textColor="@color/text_button_color"
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/prop_ttl_ppl_numbers_val"
                 android:layout_weight="2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="#FFF"
                 android:gravity="center"
-                android:padding="5dp"
                 android:text="0"
-                android:textColor="#454545"
-                android:textSize="25sp" />
+                android:textColor="@color/main_text_color"
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/prop_plus_ttl_ppl"
                 android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="#FFF"
                 android:gravity="center"
-                android:padding="5dp"
                 android:text="+"
-                android:textColor="#2c3e50"
-                android:textSize="25sp" />
+                android:textColor="@color/text_button_color"
+                android:textSize="20sp" />
 
         </LinearLayout>
 
@@ -202,15 +191,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:padding="5dp"
+            android:padding="3dp"
             android:text="Balconies"
-            android:textColor="#454545"
-            android:textSize="20sp" />
+            android:textColor="@color/main_text_color"
+            android:textSize="17sp" />
 
         <LinearLayout
             android:id="@+id/prop_balcony_linear_layout"
             android:layout_below="@id/prop_balcony_text_view"
             android:layout_width="match_parent"
+            android:padding="3dp"
+            android:background="@color/white_color"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:layout_height="wrap_content">
@@ -220,51 +211,52 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="#FFF"
                 android:gravity="center"
-                android:padding="5dp"
                 android:text="-"
-                android:textColor="#2c3e50"
-                android:textSize="25sp" />
+                android:textColor="@color/text_button_color"
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/prop_balcony_numbers_val"
                 android:layout_weight="2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="#FFF"
                 android:gravity="center"
-                android:padding="5dp"
                 android:text="0"
-                android:textColor="#454545"
-                android:textSize="25sp" />
+                android:textColor="@color/main_text_color"
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/prop_plus_balcony"
                 android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="#FFF"
                 android:gravity="center"
-                android:padding="5dp"
                 android:text="+"
-                android:textColor="#2c3e50"
-                android:textSize="25sp" />
+                android:textColor="@color/text_button_color"
+                android:textSize="20sp" />
 
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/prop_next_button"
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginTop="20dp"
             android:layout_below="@id/prop_balcony_linear_layout"
-            android:layout_alignParentBottom="true"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/primaryColor"
-            android:gravity="center"
-            android:padding="5dp"
-            android:text="Next"
-            android:textColor="#F6F6F6"
-            android:textSize="25sp" />
+            android:gravity="center_horizontal|bottom"
+            android:paddingTop="2px" >
+
+            <TextView
+                android:id="@+id/prop_next_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/primary_color"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="Next"
+                android:textColor="@color/main_background_color"
+                android:textSize="22sp" />
+        </LinearLayout>
 
     </RelativeLayout>
 

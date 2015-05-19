@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="primaryColor">#303040</color>
-    <color name="primaryColorDark">#1e1e2b</color>
-    <color name="accentColor">#50514F</color>
-    <color name="colorHighlight">#22223F</color>
-
+    <color name="primary_color">#303040</color>
+    <color name="primary_color_dark">#1e1e2b</color>
+    <color name="main_background_color">#F6F6F6</color>
+    <color name="title_text_color">#8d9299</color>
+    <color name="main_text_color">#454545</color>
+    <color name="white_color">#FFF</color>
+    <color name="text_button_color">#2c3e50</color>
     <color name="view_background">#e8ecfa</color>
     <color name="btn_bg">#277bec</color>
     <color name="white">#ffffff</color>

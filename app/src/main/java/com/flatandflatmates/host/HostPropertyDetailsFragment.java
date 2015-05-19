@@ -16,7 +16,7 @@ import java.util.HashMap;
 /**
  * Created by applect on 21/2/15.
  */
-public class HostPropertyFragment extends Fragment implements View.OnClickListener {
+public class HostPropertyDetailsFragment extends Fragment implements View.OnClickListener {
 
     TextView plusMaxPpl;
     TextView minusMaxPpl;
@@ -45,6 +45,7 @@ public class HostPropertyFragment extends Fragment implements View.OnClickListen
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
         View layout = inflater.inflate(R.layout.host_property, container, false);
 
         plusMaxPpl = (TextView) layout.findViewById(R.id.prop_plus_ttl_ppl);

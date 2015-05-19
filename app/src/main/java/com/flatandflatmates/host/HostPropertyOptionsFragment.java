@@ -12,12 +12,14 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.flatandflatmates.GoogleMaps.GoogleMapsActivity;
 import com.flatandflatmates.R;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
-public class HostPropertyOptions extends Fragment {
+public class HostPropertyOptionsFragment extends Fragment {
 
     private RecyclerView recyclerView;
     private HostOptionsInfoAdapter adapter;
@@ -32,11 +34,18 @@ public class HostPropertyOptions extends Fragment {
         recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getActivity(), recyclerView, new ClickListener() {
             @Override
             public void onClick( View view, int position ) {
-                Intent hostOptions = new Intent(getActivity(), HostOptionsClick.class);
+
+                Intent navClick = new Intent( getActivity(),GoogleMapsActivity.class );
+                Bundle param = new Bundle();
+                param.putInt("propertyType",position);
+                navClick.putExtras(param);
+                startActivity(navClick);
+
+                /*Intent hostOptions = new Intent(getActivity(), HostPropertyOptionsClickActivity.class);
                 Bundle param = new Bundle();
                 param.putInt("position",position);
                 hostOptions.putExtras(param);
-                startActivity(hostOptions);
+                startActivity(hostOptions);*/
             }
 
             @Override
@@ -50,7 +59,7 @@ public class HostPropertyOptions extends Fragment {
     public static List<HostOptionsInformation> getData(){
         List<HostOptionsInformation> data = new ArrayList<>();
         int[] icons = {R.drawable.ic_number1, R.drawable.ic_number1, R.drawable.ic_number1,R.drawable.ic_number1};
-        String[] titles = { "Flat", "Flat Mate","Room", "PG" };
+        String[] titles = { "Apartment", "House","Bangalow", "Villa" };
         for(int i =0 ; i < titles.length && i < icons.length; i++){
             HostOptionsInformation current = new HostOptionsInformation();
             current.inconId = icons[i];
@@ -64,6 +73,7 @@ public class HostPropertyOptions extends Fragment {
 
         private GestureDetector gestureDetector;
         private ClickListener clickListener;
+
         public RecyclerTouchListener(Context context, RecyclerView rv, ClickListener clickListener){
             this.clickListener = clickListener;
             gestureDetector = new GestureDetector(context, new GestureDetector.SimpleOnGestureListener(){
@@ -73,6 +83,7 @@ public class HostPropertyOptions extends Fragment {
                 }
             });
         }
+
         @Override
         public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent e) {
             View child = rv.findChildViewUnder(e.getX(), e.getY());

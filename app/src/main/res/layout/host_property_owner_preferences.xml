@@ -8,94 +8,133 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/propRelativeLayout"
-        android:background="@color/main_background_color">
+        android:layout_height="match_parent" >
 
         <TextView
-            android:id="@+id/avlbl_text_view"
+            android:id="@+id/host_prop_ownr_pref_gender_tv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/main_background_color"
-            android:gravity="center"
-            android:padding="@dimen/abc_action_bar_default_height_material"
-            android:text="Provide the details of Available Space"
-            android:textColor="#8d9299"
-            android:textSize="25sp" />
-
-        <TextView
-            android:id="@+id/avlbl_rooms_text_view"
-            android:layout_below="@id/avlbl_text_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
             android:padding="5dp"
-            android:text="No of Rooms Available"
+            android:text="Gender"
             android:textColor="#454545"
             android:textSize="20sp" />
 
         <LinearLayout
-            android:id="@+id/avlbl_rooms_linear_layout"
-            android:layout_below="@id/avlbl_rooms_text_view"
+            android:id="@+id/host_prop_ownr_pref_gender_rg"
+            android:layout_below="@id/host_prop_ownr_pref_gender_tv"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Male"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Female"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/host_prop_ownr_pref_gender1_rg"
+            android:layout_below="@id/host_prop_ownr_pref_gender_rg"
             android:layout_width="match_parent"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
 
-            <TextView
-                android:id="@+id/avlbl_minus_room_numbers"
+            <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="#FFF"
-                android:gravity="center"
-                android:padding="5dp"
-                android:text="-"
-                android:textColor="#2c3e50"
-                android:textSize="25sp" />
-
-            <TextView
-                android:id="@+id/avlbl_room_numbers"
-                android:layout_weight="2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="#FFF"
-                android:gravity="center"
-                android:padding="5dp"
-                android:text="0"
-                android:textColor="#454545"
-                android:textSize="25sp" />
-
-            <TextView
-                android:id="@+id/avlbl_plus_room_numbers"
-                android:layout_weight="1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="#FFF"
-                android:gravity="center"
-                android:padding="5dp"
-                android:text="+"
-                android:textColor="#2c3e50"
-                android:textSize="25sp" />
+                android:text="Any"/>
 
         </LinearLayout>
 
         <TextView
-            android:id="@+id/avlbl_is_shared_text_view"
-            android:layout_below="@id/avlbl_rooms_linear_layout"
+            android:id="@+id/host_prop_ownr_pref_occupation_tv"
+            android:layout_below="@id/host_prop_ownr_pref_gender1_rg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:layout_marginTop="10dp"
             android:padding="5dp"
-            android:text="Is room Shared ?"
+            android:text="Occupation"
             android:textColor="#454545"
             android:textSize="20sp" />
 
-        <RadioGroup
-            android:id="@+id/avlbl_is_shared_radio_group"
-            android:layout_below="@id/avlbl_is_shared_text_view"
+        <LinearLayout
+            android:id="@+id/host_prop_ownr_pref_occupation_ll1"
+            android:layout_below="@id/host_prop_ownr_pref_occupation_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp">
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Student"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Job"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/host_prop_ownr_pref_occupation_ll2"
+            android:layout_below="@id/host_prop_ownr_pref_occupation_ll1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp">
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight=".85"
+                android:text="Entrepreneur"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.20"
+                android:text="Any"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/host_prop_ownr_pref_food_tv"
+            android:layout_below="@id/host_prop_ownr_pref_occupation_ll2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:padding="5dp"
+            android:text="Food"
+            android:textColor="#454545"
+            android:textSize="20sp" />
+
+        <LinearLayout
+            android:id="@+id/host_prop_ownr_pref_food_rg"
+            android:layout_below="@id/host_prop_ownr_pref_food_tv"
             android:layout_width="match_parent"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
@@ -106,32 +145,85 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Yes"/>
+                android:text="Veg"/>
 
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="No"/>
+                android:text="Nonveg"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/host_prop_ownr_pref_food1_rg"
+            android:layout_below="@id/host_prop_ownr_pref_food_rg"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Doesn't Matter"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/host_prop_ownr_pref_smkdrk_tv"
+            android:layout_below="@id/host_prop_ownr_pref_food1_rg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:padding="5dp"
+            android:text="Smoking / Drinking"
+            android:textColor="#454545"
+            android:textSize="20sp" />
+
+        <RadioGroup
+            android:id="@+id/host_prop_ownr_pref_smkdrk_rg"
+            android:layout_below="@id/host_prop_ownr_pref_smkdrk_tv"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Allowed"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Not Allowed"/>
 
         </RadioGroup>
 
         <TextView
-            android:id="@+id/avlbl_att_bthrm_text_view"
-            android:layout_below="@id/avlbl_is_shared_radio_group"
+            android:id="@+id/host_prop_ownr_pref_guests_tv"
+            android:layout_below="@id/host_prop_ownr_pref_smkdrk_rg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:layout_marginTop="10dp"
             android:padding="5dp"
-            android:text="Attached Bathroom ?"
+            android:text="Guests"
             android:textColor="#454545"
             android:textSize="20sp" />
 
         <RadioGroup
-            android:id="@+id/avlbl_att_bthrm_radio_group"
-            android:layout_below="@id/avlbl_att_bthrm_text_view"
+            android:id="@+id/host_prop_ownr_pref_guests_rg"
+            android:layout_below="@id/host_prop_ownr_pref_guests_tv"
             android:layout_width="match_parent"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
@@ -142,32 +234,32 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Yes"/>
+                android:text="Allowed"/>
 
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="No"/>
+                android:text="Not Allowed"/>
 
         </RadioGroup>
 
         <TextView
-            android:id="@+id/avlbl_frn_bed_text_view"
-            android:layout_below="@id/avlbl_att_bthrm_radio_group"
+            android:id="@+id/host_prop_ownr_pref_pets_tv"
+            android:layout_below="@id/host_prop_ownr_pref_guests_rg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
             android:padding="5dp"
-            android:text="Furnished with Bed ?"
+            android:text="Pets"
             android:textColor="#454545"
             android:textSize="20sp" />
 
         <RadioGroup
-            android:id="@+id/avlbl_frn_bed_radio_group"
-            android:layout_below="@id/avlbl_frn_bed_text_view"
+            android:id="@+id/host_prop_ownr_pref_pets_rg"
+            android:layout_below="@id/host_prop_ownr_pref_pets_tv"
             android:layout_width="match_parent"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
@@ -178,56 +270,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Yes"/>
+                android:text="Allowed"/>
 
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="No"/>
-
-        </RadioGroup>
-
-        <TextView
-            android:id="@+id/avlbl_balcony_text_view"
-            android:layout_below="@id/avlbl_frn_bed_radio_group"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:padding="5dp"
-            android:text="Room has Balcony ?"
-            android:textColor="#454545"
-            android:textSize="20sp" />
-
-        <RadioGroup
-            android:id="@+id/avlbl_balcony_radio_group"
-            android:layout_below="@id/avlbl_balcony_text_view"
-            android:layout_width="match_parent"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal" >
-
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Yes"/>
-
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="No"/>
+                android:text="Not Allowed"/>
 
         </RadioGroup>
 
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:layout_below="@id/avlbl_balcony_radio_group"
+            android:layout_below="@id/host_prop_ownr_pref_pets_rg"
             android:layout_marginTop="20dp"
             android:gravity="center_horizontal|bottom"
             android:paddingTop="2dp" >
@@ -245,5 +301,4 @@
         </LinearLayout>
 
     </RelativeLayout>
-
 </ScrollView>

@@ -7,16 +7,17 @@
     tools:context="com.flatandflatmates.GoogleMaps.GoogleMapsActivity">
 
     <TextView
+        android:id="@+id/locate_maps_text_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/primaryColor"
+        android:background="@color/main_background_color"
         android:gravity="center"
         android:padding="@dimen/abc_action_bar_default_height_material"
         android:text="Locate your Space"
-        android:textColor="#CCC"
+        android:textColor="@color/title_text_color"
         android:textSize="25sp" />
 
-    <LinearLayout
+    <!--<LinearLayout
         android:layout_width="match_parent"
         android:orientation="horizontal"
         android:id="@+id/searchLayout"
@@ -41,12 +42,12 @@
             android:background="@drawable/ic_location"
             android:id="@+id/currentLocation"
             android:layout_gravity="right" />
-    </LinearLayout>
+    </LinearLayout>-->
 
     <fragment
-        android:id="@+id/map"
+        android:id="@+id/locate_property_on_map"
         android:layout_weight="1"
-        android:layout_below="@id/searchLayout"
+        android:layout_below="@id/locate_maps_text_view"
         android:name="com.google.android.gms.maps.MapFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
@@ -54,23 +55,19 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0"
-        android:layout_below="@id/map"
+        android:layout_below="@id/locate_property_on_map"
         android:gravity="bottom|center"
         android:orientation="vertical">
 
         <Button
-            android:id="@+id/roomNextButton"
+            android:id="@+id/add_address_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal|center"
-            android:height="40dp"
-            android:background="@color/primaryColorDark"
-            android:clickable="true"
-            android:gravity="center|center_horizontal"
-            android:text="Save"
-            android:textColor="#CCC"
-            android:textSize="25sp" />
+            android:background="@color/primary_color"
+            android:gravity="center"
+            android:text="Next"
+            android:textColor="@color/main_background_color"
+            android:textSize="22sp" />
     </LinearLayout>
 
 </LinearLayout>

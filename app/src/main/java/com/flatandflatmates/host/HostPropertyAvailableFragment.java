@@ -15,16 +15,16 @@ import com.flatandflatmates.R;
 import java.util.HashMap;
 
 /**
- * Created by applect on 21/2/15.
+ * Created by Hitesh Goel on 21/2/15.
  */
-public class HostAvailablePropertyDetails extends Fragment implements View.OnClickListener {
+public class HostPropertyAvailableFragment extends Fragment implements View.OnClickListener {
 
     TextView plusBedRoomsTextView;
     TextView minusBedRoomsTextView;
     TextView textBedRoomsView;
     Integer sumBedRoom = 0;
 
-    Button nextButtonClick;
+    TextView nextButtonClick;
     HashMap<String, Integer> hashMap;
     public static final String SPACE_INTENT = "com.flatandflatmate.intent.action.FLATMATE_DETAILS";
 
@@ -35,7 +35,7 @@ public class HostAvailablePropertyDetails extends Fragment implements View.OnCli
         plusBedRoomsTextView = (TextView) layout.findViewById(R.id.avlbl_plus_room_numbers);
         minusBedRoomsTextView = (TextView) layout.findViewById(R.id.avlbl_minus_room_numbers);
         textBedRoomsView = (TextView) layout.findViewById(R.id.avlbl_room_numbers);
-        nextButtonClick = (Button) layout.findViewById(R.id.avlb_next_button);
+        nextButtonClick = (TextView) layout.findViewById(R.id.avlb_next_button);
 
 
         plusBedRoomsTextView.setOnClickListener(this);
