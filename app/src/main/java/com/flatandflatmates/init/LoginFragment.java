@@ -21,7 +21,7 @@ import com.facebook.login.widget.LoginButton;
 import com.flatandflatmates.R;
 
 /**
- * Created by applect on 8/1/15.
+ * Created by Hitesh on 8/1/15.
  */
 
 public class LoginFragment extends Fragment {
@@ -30,15 +30,16 @@ public class LoginFragment extends Fragment {
     private CallbackManager mCallbackManager;
     private AccessTokenTracker accessTracker;
     private ProfileTracker profileTracker;
+
     private FacebookCallback<LoginResult> mCallback = new FacebookCallback<LoginResult>() {
         @Override
         public void onSuccess(LoginResult loginResult) {
 
-            AccessToken accessToken = loginResult.getAccessToken();
-            Profile profile =  Profile.getCurrentProfile();
-            if( profile != null ){
-                textView.setText("Welcome " + profile.getName());
-            }
+            //AccessToken accessToken = loginResult.getAccessToken();
+            //Profile profile =  Profile.getCurrentProfile();
+            //if( profile != null ){
+                //textView.setText("Welcome " + profile.getName());
+            //}
 
             Intent myIntent = new Intent(getActivity(), MenuActivity.class );
             startActivity(myIntent);
@@ -71,7 +72,7 @@ public class LoginFragment extends Fragment {
             @Override
             protected void onCurrentProfileChanged(Profile profileOld, Profile profileNew) {
                 if( profileNew != null ){
-                    textView.setText("Welcome " + profileNew.getName());
+                    //textView.setText("Welcome " + profileNew.getName());
                 }
             }
         };
@@ -106,7 +107,7 @@ public class LoginFragment extends Fragment {
         super.onResume();
         Profile profile =  Profile.getCurrentProfile();
         if( profile != null ){
-            textView.setText("Welcome " + profile.getName());
+            //textView.setText("Welcome " + profile.getName());
         }
     }
 
